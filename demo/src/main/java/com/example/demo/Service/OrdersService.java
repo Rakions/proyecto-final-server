@@ -11,14 +11,14 @@ import java.util.List;
 import java.util.Set;
 
 @Service
-public class UsuariosService {
+public class OrdersService {
 
     @Autowired
     private OrdersRepository usuariosRepo;
 
     //-----------------------------------------Categoria-----------------------------------------\\
-    public List<usuarios> ConsultarUsuarios() {
-        List<usuarios> listaUsuarios = usuariosRepo.getUsuarios();
+    public List<usuarios> ConsultarOrders() {
+        List<orders> listaOrders = usuariosRepo.getUsuarios();
         return listaUsuarios;
     }
 
