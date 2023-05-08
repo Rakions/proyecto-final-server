@@ -1,7 +1,7 @@
 package com.example.demo.Service;
 
-import com.example.demo.Entity.cafe_users;
-import com.example.demo.Repository.UsuariosRepository;
+import com.example.demo.Entity.usuarios;
+import com.example.demo.Repository.OrdersRepository;
 import com.example.demo.Repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,19 +11,19 @@ import java.util.List;
 import java.util.Set;
 
 @Service
-public class UsuariosService {
+public class OrdersService {
 
     @Autowired
     private OrdersRepository usuariosRepo;
 
     //-----------------------------------------Categoria-----------------------------------------\\
-    public List<cafe_users> ConsultarUsuarios() {
-        List<cafe_users> listaUsuarios = usuariosRepo.getUsuarios();
+    public List<usuarios> ConsultarOrders() {
+        List<orders> listaOrders = usuariosRepo.getUsuarios();
         return listaUsuarios;
     }
 
-    public List<cafe_users> BuscarUsuario(Set<Integer> id) {
-        List<cafe_users> listaUsuario = usuariosRepo.getUsuarioPorId(id);
+    public List<usuarios> BuscarUsuario(Set<Integer> id) {
+        List<usuarios> listaUsuario = usuariosRepo.getUsuarioPorId(id);
         return listaUsuario;
     }
 
