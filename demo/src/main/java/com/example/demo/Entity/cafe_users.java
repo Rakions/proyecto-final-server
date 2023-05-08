@@ -8,7 +8,7 @@ import java.sql.Date;
 
 @Entity
 @Table(name = "cafe_users")
-public class usuarios {
+public class cafe_users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
@@ -107,7 +107,7 @@ public class usuarios {
         this.last_connection = last_connection;
     }
 
-    public usuarios(int user_id, String user_name, String surname, String email, String password, String username, int phone, Date last_connection) {
+    public cafe_users(int user_id, String user_name, String surname, String email, String password, String username, int phone, Date last_connection) {
         this.user_id = user_id;
         this.user_name = user_name;
         this.surname = surname;
@@ -118,6 +118,6 @@ public class usuarios {
         this.last_connection = last_connection;
     }
 
-    public usuarios() {
+    public cafe_users() {
     }
 }

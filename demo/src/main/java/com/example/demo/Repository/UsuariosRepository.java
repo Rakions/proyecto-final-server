@@ -1,6 +1,6 @@
 package com.example.demo.Repository;
 
-import com.example.demo.Entity.usuarios;
+import com.example.demo.Entity.cafe_users;
 
 import java.sql.Date;
 import java.util.List;
@@ -12,18 +12,18 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Transactional
-public interface UsuariosRepository extends CrudRepository<usuarios, Integer> {
+public interface UsuariosRepository extends CrudRepository<cafe_users, Integer> {
     //consultar
     String getUsuariosQuery = "SELECT * FROM cafe_users";
 
     @Query(nativeQuery = true, value = getUsuariosQuery)
-    List<usuarios> getUsuarios();
+    List<cafe_users> getUsuarios();
 
     //buscar
     String getUsuarioQuery = "SELECT * FROM usuarios WHERE user_id = :id";
 
     @Query(nativeQuery = true, value = getUsuarioQuery)
-    List<usuarios> getUsuarioPorId(Set<Integer> id);
+    List<cafe_users> getUsuarioPorId(Set<Integer> id);
 
     //crear
     String crearUsuarioQuery = "INSERT INTO cafe_users (user_name,surname,email,password,username,phone,last_connection) VALUES (:name,:surname,:email,:password,:username,:phone,:last_connection)";

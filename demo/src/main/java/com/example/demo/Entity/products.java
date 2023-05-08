@@ -8,7 +8,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "products")
-public class productos {
+public class products {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "products_id")
@@ -95,7 +95,7 @@ public class productos {
         this.price = price;
     }
 
-    public productos(int products_id, String product_name, String product_description, int stock, int reviews, int category_id, int price) {
+    public products(int products_id, String product_name, String product_description, int stock, int reviews, int category_id, int price) {
         this.products_id = products_id;
         this.product_name = product_name;
         this.product_description = product_description;
@@ -105,6 +105,6 @@ public class productos {
         this.price = price;
     }
 
-    public productos() {
+    public products() {
     }
 }

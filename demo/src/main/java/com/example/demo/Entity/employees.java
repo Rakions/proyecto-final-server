@@ -8,7 +8,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "employees")
-public class empleados {
+public class employees {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "employee_id")
@@ -83,7 +83,7 @@ public class empleados {
         this.user_id = user_id;
     }
 
-    public empleados(int employee_id, int salary, Date hire_date, String email, String position, int user_id) {
+    public employees(int employee_id, int salary, Date hire_date, String email, String position, int user_id) {
         this.employee_id = employee_id;
         this.salary = salary;
         this.hire_date = hire_date;
@@ -92,6 +92,6 @@ public class empleados {
         this.user_id = user_id;
     }
 
-    public empleados() {
+    public employees() {
     }
 }

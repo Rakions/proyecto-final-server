@@ -8,7 +8,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "categories")
-public class categorias {
+public class categories {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "category_id")
