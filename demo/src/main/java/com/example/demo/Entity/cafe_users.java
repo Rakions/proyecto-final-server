@@ -8,7 +8,7 @@ import java.sql.Date;
 
 @Entity
 @Table(name = "cafe_users")
-public class usuarios {
+public class cafe_users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
@@ -19,9 +19,9 @@ public class usuarios {
     @JsonProperty("user_name")
     private String user_name;
 
-    @Column(name = "surname")
-    @JsonProperty("surname")
-    private String surname;
+    @Column(name = "user_surname")
+    @JsonProperty("user_surname")
+    private String user_surname;
 
     @Column(name = "email")
     @JsonProperty("email")
@@ -60,11 +60,11 @@ public class usuarios {
     }
 
     public String getSurname() {
-        return surname;
+        return user_surname;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void setSurname(String user_surname) {
+        this.user_surname = user_surname;
     }
 
     public String getEmail() {
@@ -107,10 +107,10 @@ public class usuarios {
         this.last_connection = last_connection;
     }
 
-    public usuarios(int user_id, String user_name, String surname, String email, String password, String username, int phone, Date last_connection) {
+    public cafe_users(int user_id, String user_name, String user_surname, String email, String password, String username, int phone, Date last_connection) {
         this.user_id = user_id;
         this.user_name = user_name;
-        this.surname = surname;
+        this.user_surname = user_surname;
         this.email = email;
         this.password = password;
         this.username = username;
@@ -118,6 +118,6 @@ public class usuarios {
         this.last_connection = last_connection;
     }
 
-    public usuarios() {
+    public cafe_users() {
     }
 }
