@@ -1,7 +1,7 @@
 package com.example.demo.Service;
 
 import com.example.demo.Entity.usuarios;
-import com.example.demo.Repository.UsuariosRepository;
+import com.example.demo.Repository.OrdersRepository;
 import com.example.demo.Repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +14,7 @@ import java.util.Set;
 public class UsuariosService {
 
     @Autowired
-    private UsuariosRepository usuariosRepo;
+    private OrdersRepository usuariosRepo;
 
     //-----------------------------------------Categoria-----------------------------------------\\
     public List<usuarios> ConsultarUsuarios() {
