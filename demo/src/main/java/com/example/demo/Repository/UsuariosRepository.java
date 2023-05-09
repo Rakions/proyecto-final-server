@@ -14,63 +14,65 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public interface UsuariosRepository extends CrudRepository<cafe_users, Integer> {
     //consultar
-    String getUsuariosQuery = "SELECT * FROM cafe_users";
+    String getcafe_usersQuery = "SELECT * FROM cafe_users";
 
-    @Query(nativeQuery = true, value = getUsuariosQuery)
-    List<cafe_users> getUsuarios();
+    @Query(nativeQuery = true, value = getcafe_usersQuery)
+    List<cafe_users> getCafe_users();
 
     //buscar
-    String getUsuarioQuery = "SELECT * FROM usuarios WHERE user_id = :id";
+    String getUsuarioQuery = "SELECT * FROM cafe_users WHERE user_id = :user_id";
 
     @Query(nativeQuery = true, value = getUsuarioQuery)
-    List<cafe_users> getUsuarioPorId(Set<Integer> id);
+    List<cafe_users> getUsuarioPorId(Set<Integer> user_id);
 
     //crear
-    String crearUsuarioQuery = "INSERT INTO cafe_users (user_name,surname,email,password,username,phone,last_connection) VALUES (:name,:surname,:email,:password,:username,:phone,:last_connection)";
+    String crearUsuarioQuery = "INSERT INTO cafe_users (user_name,user_surname,email,password,username,phone,last_connection) VALUES (:user_name,:user_surname,:email,:password,:username,:phone,:last_connection)";
 
     @Modifying
     @Query(nativeQuery = true, value = crearUsuarioQuery)
-    void crearUsuario(int user_id, String name, String surname, String email, String password, String username, int phone, Date last_connection);
+    void crearUsuario(String user_name, String user_surname, String email, String password, String username, int phone, Date last_connection);
 
     //modificar
-    String modificarUsuarioNombreQuery = "UPDATE usuarios SET user_name = :nombre WHERE cafe_users.user_id = :id";
-    String modificarUsuarioApellidoQuery = "UPDATE usuarios SET apellido_usuario = :apellido WHERE usuarios.id_usuario = :id";
-    String modificarUsuarioCorreoQuery = "UPDATE usuarios SET correo_usuario = :correo WHERE usuarios.id_usuario = :id";
-    String modificarUsuarioContraQuery = "UPDATE usuarios SET contra_usuario = :contra WHERE usuarios.id_usuario = :id";
-    String modificarUsuarioFechaQuery = "UPDATE usuarios SET last_connection = :fecha WHERE usuarios.id_usuario = :id";
-    String modificarUsuarioTelefonoQuery = "UPDATE usuarios SET telefono_usuario = :telefono WHERE usuarios.id_usuario = :id";
+    String modificarUsuarioNombreQuery = "UPDATE cafe_users SET user_name = :user_name WHERE cafe_users.user_id = :user_id";
+    String modificarUsuarioApellidoQuery = "UPDATE cafe_users SET user_surname = :user_surname WHERE cafe_users.user_id = :user_id";
+    String modificarNombreDeUsuarioQuery = "update cafe_users set username = :username where cafe_users.user_id = :user_id";
+    String modificarUsuarioCorreoQuery = "UPDATE cafe_users SET email = :email WHERE cafe_users.user_id = :user_id";
+    String modificarUsuarioContraQuery = "UPDATE cafe_users SET password = :password WHERE cafe_users.user_id = :user_id";
+    String modificarUsuarioFechaQuery = "UPDATE cafe_users SET last_connection = :last_connection WHERE cafe_users.user_id = :user_id";
+    String modificarUsuarioTelefonoQuery = "UPDATE cafe_users SET phone = :phone WHERE cafe_users.user_id = :user_id";
 
     @Modifying
     @Query(nativeQuery = true, value = modificarUsuarioNombreQuery)
-    void modificarUsuarioNombrePorId(Integer id, String nombre);
+    void modificarUsuarioNombrePorId(Integer user_id, String user_name);
 
     @Modifying
     @Query(nativeQuery = true, value = modificarUsuarioApellidoQuery)
-    void modificarUsuarioApellidoPorId(Integer id, String apellido);
+    void modificarUsuarioApellidoPorId(Integer user_id, String user_surname);
+
+    @Modifying
+    @Query(nativeQuery = true,value = modificarNombreDeUsuarioQuery)
+    void modificarNombreDeUsuarioPorId(Integer user_id,String username);
 
     @Modifying
     @Query(nativeQuery = true, value = modificarUsuarioCorreoQuery)
-    void modificarUsuarioCorreoPorId(Integer id, String correo);
+    void modificarUsuarioCorreoPorId(Integer user_id, String email);
 
     @Modifying
     @Query(nativeQuery = true, value = modificarUsuarioContraQuery)
-    void modificarUsuarioContraPorId(Integer id, String contra);
-
+    void modificarUsuarioContraPorId(Integer user_id, String password);
 
     @Modifying
     @Query(nativeQuery = true, value = modificarUsuarioFechaQuery)
-    void modificarUsuarioFechaPorId(Integer id, Date fecha);
-
-
+    void modificarUsuarioFechaPorId(Integer user_id, Date last_connection);
 
     @Modifying
     @Query(nativeQuery = true, value = modificarUsuarioTelefonoQuery)
-    void modificarUsuarioTelefonoPorId(Integer id, int telefono);
+    void modificarUsuarioTelefonoPorId(Integer user_id, int phone);
 
     //borrar
-    String borrarUsuarioQuery = "DELETE FROM usuarios WHERE id_usuario = :id";
+    String borrarUsuarioQuery = "DELETE FROM cafe_users WHERE user_id = :user_id";
 
     @Modifying
     @Query(nativeQuery = true, value = borrarUsuarioQuery)
-    void eliminarUsuarioPorId(Integer id);
+    void eliminarUsuarioPorId(Integer user_id);
 }

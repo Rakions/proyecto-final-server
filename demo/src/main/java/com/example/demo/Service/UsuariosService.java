@@ -14,45 +14,49 @@ import java.util.Set;
 public class UsuariosService {
 
     @Autowired
-    private OrdersRepository usuariosRepo;
+    private UsuariosRepository usuariosRepo;
 
     //-----------------------------------------Categoria-----------------------------------------\\
     public List<cafe_users> ConsultarUsuarios() {
-        List<cafe_users> listaUsuarios = usuariosRepo.getUsuarios();
+        List<cafe_users> listaUsuarios = usuariosRepo.getCafe_users();
         return listaUsuarios;
     }
 
-    public List<cafe_users> BuscarUsuario(Set<Integer> id) {
-        List<cafe_users> listaUsuario = usuariosRepo.getUsuarioPorId(id);
+    public List<cafe_users> BuscarUsuario(Set<Integer> user_id) {
+        List<cafe_users> listaUsuario = usuariosRepo.getUsuarioPorId(user_id);
         return listaUsuario;
     }
 
-    public void CrearUsuario(int user_id, String name, String surname,String email,String password,String username,int phone,Date last_connection) {
-        usuariosRepo.crearUsuario(user_id,name, surname, email, password, username, phone, last_connection);
+    public void CrearUsuario(String user_name, String user_surname,String email,String password,String username,int phone,Date last_connection) {
+        usuariosRepo.crearUsuario(user_name, user_surname, email, password, username, phone, last_connection);
     }
 
-    public void ModificarUsuarioNombre(Integer user_id, String name) {
-        usuariosRepo.modificarUsuarioNombrePorId(user_id, name);
+    public void ModificarUsuarioNombre(Integer user_id, String user_name) {
+        usuariosRepo.modificarUsuarioNombrePorId(user_id, user_name);
     }
 
-    public void ModificarUsuarioApellido(Integer user_id, String surname){
-        usuariosRepo.modificarUsuarioApellidoPorId(user_id, surname);
+    public void ModificarUsuarioApellido(Integer user_id, String user_surname){
+        usuariosRepo.modificarUsuarioApellidoPorId(user_id, user_surname);
     }
 
-    public void ModificarUsuarioCorreo(Integer id, String email){
-        usuariosRepo.modificarUsuarioCorreoPorId(id, email);
+    public void ModificarNombreDeUsuario(Integer user_id,String username){
+        usuariosRepo.modificarNombreDeUsuarioPorId(user_id, username);
     }
 
-    public void ModificarUsuarioContra(Integer id, String password){
-        usuariosRepo.modificarUsuarioContraPorId(id, password);
+    public void ModificarUsuarioCorreo(Integer user_id, String email){
+        usuariosRepo.modificarUsuarioCorreoPorId(user_id, email);
     }
 
-    public void ModificarUltimaConexion(Integer id, Date last_connection){
-        usuariosRepo.modificarUsuarioFechaPorId(id, last_connection);
+    public void ModificarUsuarioContra(Integer user_id, String password){
+        usuariosRepo.modificarUsuarioContraPorId(user_id, password);
     }
 
-    public void ModificarUsuarioTelefono(Integer id, int phone){
-        usuariosRepo.modificarUsuarioTelefonoPorId(id, phone);
+    public void ModificarUltimaConexion(Integer user_id, Date last_connection){
+        usuariosRepo.modificarUsuarioFechaPorId(user_id, last_connection);
+    }
+
+    public void ModificarUsuarioTelefono(Integer user_id, int phone){
+        usuariosRepo.modificarUsuarioTelefonoPorId(user_id, phone);
     }
 
     public void EliminarUsuario(Integer user_id) {
