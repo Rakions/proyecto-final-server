@@ -1,6 +1,6 @@
 package com.example.demo.Repository;
 
-import com.example.demo.Entity.empleados;
+import com.example.demo.Entity.employees;
 
 import java.sql.Date;
 import java.util.List;
@@ -12,21 +12,21 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Transactional
-public interface EmpleadosRepository extends CrudRepository<empleados, Integer> {
+public interface EmpleadosRepository extends CrudRepository<employees, Integer> {
     //consultar
     String getEmpleadosQuery = "SELECT * FROM cafe_users";
 
     @Query(nativeQuery = true, value = getEmpleadosQuery)
-    List<empleados> getUsuarios();
+    List<employees> getEmpleados();
 
     //buscar
-    String getEmpleadoQuery = "SELECT * FROM usuarios WHERE user_id = :id";
+    String getEmpleadoQuery = "SELECT * FROM employees WHERE employee_id = :employee_id";
 
     @Query(nativeQuery = true, value = getEmpleadoQuery)
-    List<empleados> getUsuarioPorId(Set<Integer> id);
+    List<employees> getEmpleadoPorId(Set<Integer> employee_id);
 
     //crear
-    String crearEmpleadoQuery = "INSERT INTO cafe_users (user_name,surname,email,password,username,phone,last_connection) VALUES (:name,:surname,:email,:password,:username,:phone,:last_connection)";
+    String crearEmpleadoQuery = "INSERT INTO employees (user_name,surname,email,password,username,phone,last_connection) VALUES (:name,:surname,:email,:password,:username,:phone,:last_connection)";
 
     @Modifying
     @Query(nativeQuery = true, value = crearEmpleadoQuery)
@@ -34,43 +34,25 @@ public interface EmpleadosRepository extends CrudRepository<empleados, Integer> 
 
     //modificar
     String modificarEmpleadoSalarioQuery = "UPDATE employees SET salary = :salary WHERE employees.employee_id = :employee_id";
-    String modificarEmpleadoFechaQuery = "UPDATE employees SET apellido_usuario = :apellido WHERE usuarios.id_usuario = :id";
-    String modificarUsuarioCorreoQuery = "UPDATE usuarios SET correo_usuario = :correo WHERE usuarios.id_usuario = :id";
-    String modificarUsuarioContraQuery = "UPDATE usuarios SET contra_usuario = :contra WHERE usuarios.id_usuario = :id";
-    String modificarUsuarioFechaQuery = "UPDATE usuarios SET last_connection = :fecha WHERE usuarios.id_usuario = :id";
-    String modificarUsuarioTelefonoQuery = "UPDATE usuarios SET telefono_usuario = :telefono WHERE usuarios.id_usuario = :id";
+    String modificarEmpleadoFechaQuery = "UPDATE employees SET hire_date = :hire_date WHERE employees.employee_id = :employee_id";
+    String modificarEmpleadosPosicionQuery = "UPDATE employees SET position = :position WHERE employees.employee_id = :employee_id";
 
     @Modifying
-    @Query(nativeQuery = true, value = modificarUsuarioNombreQuery)
-    void modificarUsuarioNombrePorId(Integer id, String nombre);
+    @Query(nativeQuery = true, value = modificarEmpleadoSalarioQuery)
+    void modificarEmpleadoSalarioPorId(Integer employee_id, Integer salary);
 
     @Modifying
-    @Query(nativeQuery = true, value = modificarUsuarioApellidoQuery)
-    void modificarUsuarioApellidoPorId(Integer id, String apellido);
+    @Query(nativeQuery = true, value = modificarEmpleadoFechaQuery)
+    void modificarEmpleadoFechaPorId(Integer employee_id, Date hire_date);
 
     @Modifying
-    @Query(nativeQuery = true, value = modificarUsuarioCorreoQuery)
-    void modificarUsuarioCorreoPorId(Integer id, String correo);
-
-    @Modifying
-    @Query(nativeQuery = true, value = modificarUsuarioContraQuery)
-    void modificarUsuarioContraPorId(Integer id, String contra);
-
-
-    @Modifying
-    @Query(nativeQuery = true, value = modificarUsuarioFechaQuery)
-    void modificarUsuarioFechaPorId(Integer id, Date fecha);
-
-
-
-    @Modifying
-    @Query(nativeQuery = true, value = modificarUsuarioTelefonoQuery)
-    void modificarUsuarioTelefonoPorId(Integer id, int telefono);
+    @Query(nativeQuery = true, value = modificarEmpleadosPosicionQuery)
+    void modificarEmpleadosPosicionPorId(Integer employee_id, String position);
 
     //borrar
-    String borrarUsuarioQuery = "DELETE FROM usuarios WHERE id_usuario = :id";
+    String borrarEmpleadoQuery = "DELETE FROM employees WHERE employee_id = :employee_id";
 
     @Modifying
-    @Query(nativeQuery = true, value = borrarUsuarioQuery)
-    void eliminarUsuarioPorId(Integer id);
+    @Query(nativeQuery = true, value = borrarEmpleadoQuery)
+    void borrarEmpleadoPorId(Integer employee_id);
 }

@@ -1,6 +1,7 @@
 package com.example.demo.Controller;
 
 import com.example.demo.Entity.*;
+import com.example.demo.Service.EmpleadosService;
 import com.example.demo.Service.UsuariosService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,67 +9,43 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Set;
+import java.sql.Date;
 
 @RestController
 @RequestMapping("API")
 public class EmployeesController {
 
     @Autowired
-    private UsuariosService impl;
+    private EmpleadosService impl;
 
     //-----------------------------------------CARACTERISTICAS-----------------------------------------\\
     @CrossOrigin(origins = "http://localhost:5173")
     @GetMapping("/empleados/consultar")
-    public List<cafe_users> consultarEmpleadosQuery(){
+    public List<employees> consultarEmpleadosQuery(){
         return impl.ConsultarEmpleados();
     }
 
     @CrossOrigin(origins = "http://localhost:5173")
-    @GetMapping("/usuarios/buscar")
-    public List<cafe_users> buscarEmpleadoQuery( @RequestParam(value = "id") Set<Integer> id){
-        return impl.BuscarUsuario(id);
+    @GetMapping("/empleados/buscar")
+    public List<employees> buscarEmpleadoQuery( @RequestParam(value = "id") Set<Integer> id){
+        return impl.BuscarEmpleado(id);
     }
 
     @CrossOrigin(origins = "http://localhost:5173")
-    @PostMapping("/usuarios/crear")
-    public void crearEmpleadoQuery(@RequestBody cafe_users usuario){
-        impl.CrearUsuario(usuario.getUser_id(), usuario.getUser_name(), usuario.getSurname(), usuario.getEmail(),usuario.getPassword(),usuario.getUsername(),usuario.getPhone(),usuario.getLast_connection());
+    @PostMapping("/empleados/crear")
+    public void crearEmpleadoQuery(@RequestBody employees empleado){
+        impl.CrearEmpleado(empleado.getEmployee_id(),empleado.getSalary(),empleado.getHire_date(),empleado.getPosition(),empleado.getUser_id());
     }
 
     @CrossOrigin(origins = "http://localhost:5173")
-    @PutMapping("/usuarios/modificar/nombre")
-    public void modificarEmpleadoNombreQuery(@RequestBody cafe_users usuario){
-        impl.ModificarUsuarioNombre(usuario.getUser_id(), usuario.getUser_name());
+    @PutMapping("/empleados/modificar/nombre")
+    public void modificarEmpleadoContraQuery(@RequestBody employees empleado){
+        impl.ModificarEmpleadoFechaContratacion(empleado.getEmployee_id(), empleado.getHire_date());
     }
 
     @CrossOrigin(origins = "http://localhost:5173")
     @PutMapping("/usuarios/modificar/apellido")
-    public void modificarEmpleadoApellidoQuery(@RequestBody cafe_users usuario){
-        impl.ModificarUsuarioApellido(usuario.getUser_id(), usuario.getSurname());
-    }
-
-    @CrossOrigin(origins = "http://localhost:5173")
-    @PutMapping("/usuarios/modificar/correo")
-    public void modificarEmpleadoCorreoQuery(@RequestBody cafe_users usuario){
-        impl.ModificarUsuarioCorreo(usuario.getUser_id(), usuario.getEmail());
-    }
-
-    @CrossOrigin(origins = "http://localhost:5173")
-    @PutMapping("/usuarios/modificar/contra")
-    public void modificarEmpleadoContraQuery(@RequestBody cafe_users usuario){
-        impl.ModificarUsuarioContra(usuario.getUser_id(), usuario.getPassword());
-    }
-
-
-    @CrossOrigin(origins = "http://localhost:5173")
-    @PutMapping("/usuarios/modificar/telefono")
-    public void modificarEmpleadoTelefonoQuery(@RequestBody cafe_users usuario){
-        impl.ModificarUsuarioTelefono(usuario.getUser_id(), usuario.getPhone());
-    }
-
-    @CrossOrigin(origins = "http://localhost:5173")
-    @DeleteMapping("/usuarios/eliminar")
-    public void eliminarEmpleadoQuery( @RequestBody cafe_users usuario){
-        impl.EliminarUsuario(usuario.getUser_id());
+    public void modificarEmpleadoPosicionQuery(@RequestBody employees empleado){
+        impl.ModificarEmpleadoPosicion(empleado.getEmployee_id(), empleado.getPosition());
     }
 }
