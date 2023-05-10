@@ -20,7 +20,7 @@ public interface UsuariosRepository extends CrudRepository<cafe_users, Integer> 
     List<cafe_users> getUsuarios();
 
     //buscar
-    String getUsuarioQuery = "SELECT * FROM usuarios WHERE user_id = :id";
+    String getProductQuery = "SELECT * FROM usuarios WHERE user_id = :id";
 
     @Query(nativeQuery = true, value = getUsuarioQuery)
     List<cafe_users> getUsuarioPorId(Set<Integer> id);

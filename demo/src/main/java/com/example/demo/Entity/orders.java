@@ -1,9 +1,15 @@
 package com.example.demo.Entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.*;
+import java.sql.Date;
 
-import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 
 @Entity
@@ -19,9 +25,18 @@ public class orders {
     @JsonProperty("user_id")
     private int user_id;
 
+    @Column(name = "shop_id")
+    @JsonProperty("shop_id")
+    private int shop_id;
+
     @Column(name = "order_date")
     @JsonProperty("order_date")
     private Date order_date;
+
+    
+    @Column(name = "address")
+    @JsonProperty("address")
+    private String address;
 
     @Column(name = "total_price")
     @JsonProperty("total_price")
@@ -43,12 +58,28 @@ public class orders {
         this.user_id = user_id;
     }
 
+    public int getShop_id() {
+        return shop_id;
+    }
+
+    public void setShop_id(int shop_id) {
+        this.shop_id = shop_id;
+    }
+
     public Date getOrder_date() {
         return order_date;
     }
 
     public void setOrder_date(Date order_date) {
         this.order_date = order_date;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public int getTotal_price() {
@@ -59,13 +90,17 @@ public class orders {
         this.total_price = total_price;
     }
 
-    public orders(int orders_id, int user_id, Date order_date, int total_price) {
+    public orders(int orders_id, int user_id, int shop_id, Date order_date, String address, int total_price) {
         this.orders_id = orders_id;
         this.user_id = user_id;
+        this.shop_id = shop_id;
         this.order_date = order_date;
+        this.address = address;
         this.total_price = total_price;
     }
 
     public orders() {
     }
+
+    
 }

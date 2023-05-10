@@ -1,6 +1,7 @@
 package com.example.demo.Service;
 
 import com.example.demo.Entity.cafe_users;
+import com.example.demo.Entity.products;
 import com.example.demo.Repository.UsuariosRepository;
 import com.example.demo.Repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,19 +12,19 @@ import java.util.List;
 import java.util.Set;
 
 @Service
-public class UsuariosService {
+public class ProductsService {
 
     @Autowired
-    private UsuariosRepository usuariosRepo;
+    private ProductsRepository productsRepo;
 
     //-----------------------------------------Categoria-----------------------------------------\\
-    public List<cafe_users> ConsultarUsuarios() {
-        List<cafe_users> listaUsuarios = usuariosRepo.getUsuarios();
-        return listaUsuarios;
+    public List<products> ConsultarUsuarios() {
+        List<products> listaProducts =productsRepo.getProducts();
+        return listaProducts;
     }
 
-    public List<cafe_users> BuscarUsuario(Set<Integer> id) {
-        List<cafe_users> listaUsuario = usuariosRepo.getUsuarioPorId(id);
+    public List<products> BuscarUsuario(Set<Integer> id) {
+        List<products> listaUsuario = productsRepo.getProductPorId(id);
         return listaUsuario;
     }
 
