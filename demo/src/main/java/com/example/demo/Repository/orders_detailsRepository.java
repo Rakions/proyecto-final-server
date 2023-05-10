@@ -26,11 +26,11 @@ public interface orders_detailsRepository extends CrudRepository<order_details, 
     List<order_details> getOrder_detail(Set<Integer> orders_id);
 
     //crear
-    String crearOrder_details = "INSERT INTO order_details (quantity) VALUES (:quantity)";
+    String crearOrder_details = "INSERT INTO order_details (orders_id,product_id,quantity) VALUES (:orders_id,:product_id,:quantity)";
 
     @Modifying
     @Query(nativeQuery = true, value = crearOrder_details)
-    void crearOrder_details(int quantity);
+    void crearOrder_details(int orders_id,int product_id,int quantity);
 
     //modificar
     String modificarOrder_detailsCantidadQuery = "update order_details set quantity = :quantity where order_details.orders_id = :orders_id";
@@ -40,9 +40,9 @@ public interface orders_detailsRepository extends CrudRepository<order_details, 
     void modificarOrder_detailsCantidadPorId(Integer orders_id, int quantity);
 
      //borrar
-     String borrarOrder_deailsQuery= "DELETE FROM orders_details WHERE orders_id = :orders_id";
+     String borrarOrder_detailsQuery= "DELETE FROM orders_details WHERE orders_id = :orders_id";
 
      @Modifying
-     @Query(nativeQuery = true, value = borrarOrder_deailsQuery)
+     @Query(nativeQuery = true, value = borrarOrder_detailsQuery)
      void borrarOrder_deailsPorId(Integer orders_id);
  }
