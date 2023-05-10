@@ -3,6 +3,7 @@ package com.example.demo.Controller;
 import com.example.demo.Entity.*;
 import com.example.demo.Service.UsuariosService;
 
+import org.hibernate.annotations.SourceType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +20,7 @@ public class UserController {
     private UsuariosService userServ;
 
     //-----------------------------------------CARACTERISTICAS-----------------------------------------\\
-    @CrossOrigin(origins = "http://localhost:5173")
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
     @GetMapping("/cafeusuarios/consultar")
     public List<cafe_users> consultarUsuariosQuery(){
         return userServ.ConsultarUsuarios();
