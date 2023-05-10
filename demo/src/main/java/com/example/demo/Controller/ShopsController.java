@@ -44,26 +44,26 @@ public class ShopsController {
     }
 
     @CrossOrigin(origins = "http://localhost:5173")
-    @PutMapping("/shops/modificar/shop_id")
+    @PutMapping("/shops/modificar/location")
     public void modificarShopsLocationQuery( @RequestBody shops shop){
         shopsServ.modificarShopsLocation(shop.getShop_id(), shop.getLocation());
     }
 
     @CrossOrigin(origins = "http://localhost:5173")
-    @PutMapping("/shops/modificar/shop_date")
+    @PutMapping("/shops/modificar/address")
     public void modificarShopsAddressQuery(@RequestBody shops shop){
         shopsServ.modificarShopsAddress(shop.getShop_id(), shop.getAddress());
     }
 
     @CrossOrigin(origins = "http://localhost:5173")
-    @PutMapping("/shops/modificar/address")
+    @PutMapping("/shops/modificar/phone")
     public void modificarShopsPhoneQuery(@RequestBody shops shop){
         shopsServ.modificarShopsPhone(shop.getShop_id(), shop.getPhone());
     }
 
 
     @CrossOrigin(origins = "http://localhost:5173")
-    @PutMapping("/shops/modificar/total_price")
+    @PutMapping("/shops/modificar/email")
     public void modificarShopsEmailQuery(@RequestBody shops shop){
         shopsServ.modificarShopsEmail(shop.getShop_id(), shop.getEmail());
     }
