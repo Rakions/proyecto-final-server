@@ -35,9 +35,9 @@ public interface OrdersRepository extends CrudRepository<orders, Integer> {
     //modificar
     String modificarOrdersUser_idQuery = "UPDATE Orders SET user_id = :user_id WHERE orders.orders_id = :id";
     String modificarOrdersShop_idQuery = "UPDATE Orders SET shop_id = :shop_id WHERE orders.orders_id = :id";
-    String modificarOrdersOrder_dateQuery = "UPDATE Orders SET order_date = :correo WHERE orders.orders_id = :id";
-    String modificarOrdersAddressQuery = "UPDATE Orders SET address = :contra WHERE orders.orders_id = :id";
-    String modificarOrdersTotal_priceQuery = "UPDATE Orders SET total_price = :fecha WHERE orders.orders_id = :id";
+    String modificarOrdersOrder_dateQuery = "UPDATE Orders SET order_date = :order_date WHERE orders.orders_id = :id";
+    String modificarOrdersAddressQuery = "UPDATE Orders SET address = :address WHERE orders.orders_id = :id";
+    String modificarOrdersTotal_priceQuery = "UPDATE Orders SET total_price = :total_price WHERE orders.orders_id = :id";
 
     @Modifying
     @Query(nativeQuery = true, value = modificarOrdersUser_idQuery)

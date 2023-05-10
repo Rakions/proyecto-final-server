@@ -27,7 +27,7 @@ public class OrdersController {
 
     @CrossOrigin(origins = "http://localhost:5173")
     @GetMapping("/orders/buscar")
-    public List<orders> buscarOrdersQuery( @RequestParam(value = "orders_id") Set<Integer> orders_id){
+    public List<orders> buscarOrdersQuery( @RequestParam(value = "id") Set<Integer> orders_id){
         return ordersServ.BuscarOrders(orders_id);
     }
 

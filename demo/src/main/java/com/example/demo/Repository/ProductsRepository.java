@@ -26,7 +26,7 @@ public interface ProductsRepository extends CrudRepository<products, Integer> {
     List<products> getProductPorId(Set<Integer> id);
 
     //crear
-    String crearProductQuery = "INSERT INTO products (product_name,product_description,stock,reviews,category_id,priece) VALUES (:product_name,:product_description,:stock,:reviews,:category_id,:priece)";
+    String crearProductQuery = "INSERT INTO products (product_name,product_description,stock,reviews,category_id,price) VALUES (:product_name,:product_description,:stock,:reviews,:category_id,:price)";
 
     @Modifying
     @Query(nativeQuery = true, value = crearProductQuery)
@@ -38,33 +38,33 @@ public interface ProductsRepository extends CrudRepository<products, Integer> {
     String modificarProductsStockQuery = "UPDATE products SET stock = :stock WHERE products.products_id = :id";
     String modificarProductsReviewsQuery = "UPDATE products SET reviews = :reviews WHERE products.products_id = :id";
     String modificarProductsCatagory_idQuery = "UPDATE products SET category_id = :category_id WHERE products.products_id = :id";
-    String modificarProductsPrieceQuery = "UPDATE products SET priece = :priece WHERE products.products_id = :id";
+    String modificarProductsPriceQuery = "UPDATE products SET price = :price WHERE products.products_id = :id";
 
     @Modifying
     @Query(nativeQuery = true, value = modificarProductsProduct_nameQuery)
-    void modificarUsuarioNombrePorId(Integer id, String product_name);
+    void modificarProductsProduct_namePorId(Integer id, String product_name);
 
     @Modifying
     @Query(nativeQuery = true, value = modificarProductsProduct_descriptionQuery)
-    void modificarUsuarioApellidoPorId(Integer id, String product_description);
+    void modificarProductsProduct_descriptionPorId(Integer id, String product_description);
 
     @Modifying
     @Query(nativeQuery = true, value = modificarProductsStockQuery)
-    void modificarUsuarioCorreoPorId(Integer id, int stock);
+    void modificarProductsStockPorId(Integer id, int stock);
 
     @Modifying
     @Query(nativeQuery = true, value = modificarProductsReviewsQuery)
-    void modificarUsuarioContraPorId(Integer id, int reviews);
+    void modificarProductsReviewsPorId(Integer id, int reviews);
 
 
     @Modifying
     @Query(nativeQuery = true, value = modificarProductsCatagory_idQuery)
-    void modificarUsuarioFechaPorId(Integer id, int category_id);
+    void modificarProductsCategory_idPorId(Integer id, int category_id);
 
 
     @Modifying
-    @Query(nativeQuery = true, value = modificarProductsPrieceQuery)
-    void modificarUsuarioTelefonoPorId(Integer id, int price);
+    @Query(nativeQuery = true, value = modificarProductsPriceQuery)
+    void modificarProductsPricePorId(Integer id, int price);
 
     //borrar
     String borrarProductsQuery = "DELETE FROM products WHERE products_id = :id";

@@ -1,8 +1,7 @@
 package com.example.demo.Service;
 
-import com.example.demo.Entity.cafe_users;
 import com.example.demo.Entity.products;
-import com.example.demo.Repository.UsuariosRepository;
+import com.example.demo.Repository.ProductsRepository;
 import com.example.demo.Repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,45 +17,45 @@ public class ProductsService {
     private ProductsRepository productsRepo;
 
     //-----------------------------------------Categoria-----------------------------------------\\
-    public List<products> ConsultarUsuarios() {
+    public List<products> consultarProducts() {
         List<products> listaProducts =productsRepo.getProducts();
         return listaProducts;
     }
 
-    public List<products> BuscarUsuario(Set<Integer> id) {
-        List<products> listaUsuario = productsRepo.getProductPorId(id);
-        return listaUsuario;
+    public List<products> BuscarProduct(Set<Integer> id) {
+        List<products> listaProduct = productsRepo.getProductPorId(id);
+        return listaProduct;
     }
 
-    public void CrearUsuario(int user_id, String name, String surname,String email,String password,String username,int phone,Date last_connection) {
-        usuariosRepo.crearUsuario(user_id,name, surname, email, password, username, phone, last_connection);
+    public void CrearProduct(String product_name, String product_description, int stock, int reviews, int category_id, int price) {
+        productsRepo.crearProduct(product_name, product_description, stock, reviews, category_id, price);
     }
 
-    public void ModificarUsuarioNombre(Integer user_id, String name) {
-        usuariosRepo.modificarUsuarioNombrePorId(user_id, name);
+    public void ModificarProductsProduct_name(Integer products_id, String products_name) {
+        productsRepo.modificarProductsProduct_namePorId(products_id, products_name);
     }
 
-    public void ModificarUsuarioApellido(Integer user_id, String surname){
-        usuariosRepo.modificarUsuarioApellidoPorId(user_id, surname);
+    public void ModificarProductsProduct_description(Integer products_id, String product_description){
+        productsRepo.modificarProductsProduct_descriptionPorId(products_id, product_description);
     }
 
-    public void ModificarUsuarioCorreo(Integer id, String email){
-        usuariosRepo.modificarUsuarioCorreoPorId(id, email);
+    public void ModificarProductsStock(Integer id, int stock){
+        productsRepo.modificarProductsStockPorId(id, stock);
     }
 
-    public void ModificarUsuarioContra(Integer id, String password){
-        usuariosRepo.modificarUsuarioContraPorId(id, password);
+    public void ModificarProductsReviews(Integer id, int reviews){
+        productsRepo.modificarProductsReviewsPorId(id, reviews);
     }
 
-    public void ModificarUltimaConexion(Integer id, Date last_connection){
-        usuariosRepo.modificarUsuarioFechaPorId(id, last_connection);
+    public void ModificarProductsCategory_id(Integer id, int category_id){
+        productsRepo.modificarProductsCategory_idPorId(id, category_id);
     }
 
-    public void ModificarUsuarioTelefono(Integer id, int phone){
-        usuariosRepo.modificarUsuarioTelefonoPorId(id, phone);
+    public void ModificarProductsPrice(Integer id, int price){
+        productsRepo.modificarProductsPricePorId(id, price);
     }
 
-    public void EliminarUsuario(Integer user_id) {
-        usuariosRepo.eliminarUsuarioPorId(user_id);
+    public void EliminarProduct(Integer products_id) {
+        productsRepo.eliminarProductsPorId(products_id);
     }
 }
