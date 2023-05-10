@@ -1,6 +1,5 @@
 package com.example.demo.Entity;
-
-import java.util.Date;
+import java.sql.Date;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -36,7 +35,7 @@ public class orders {
     
     @Column(name = "address")
     @JsonProperty("address")
-    private Date address;
+    private String address;
 
     @Column(name = "total_price")
     @JsonProperty("total_price")
@@ -74,11 +73,11 @@ public class orders {
         this.order_date = order_date;
     }
 
-    public Date getAddress() {
+    public String getAddress() {
         return address;
     }
 
-    public void setAddress(Date address) {
+    public void setAddress(String address) {
         this.address = address;
     }
 
@@ -90,7 +89,7 @@ public class orders {
         this.total_price = total_price;
     }
 
-    public orders(int orders_id, int user_id, int shop_id, Date order_date, Date address, int total_price) {
+    public orders(int orders_id, int user_id, int shop_id, Date order_date, String address, int total_price) {
         this.orders_id = orders_id;
         this.user_id = user_id;
         this.shop_id = shop_id;

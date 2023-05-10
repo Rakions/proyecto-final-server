@@ -20,23 +20,24 @@ public class shops {
 
   @Column(name = "shop_name")
   @JsonProperty("shop_name")
-  private int shop_name;
+
+  private String shop_name;
 
   @Column(name = "location")
   @JsonProperty("location")
-  private int location;
+  private String location;
 
   @Column(name = "address")
   @JsonProperty("address")
-  private int address;
+  private String address;
 
   @Column(name = "phone")
   @JsonProperty("phone")
-  private int phone;
+  private String phone;
 
   @Column(name = "email")
   @JsonProperty("email")
-  private int email;
+  private String email;
 
   public int getShop_id() {
     return shop_id;
@@ -46,47 +47,47 @@ public class shops {
     this.shop_id = shop_id;
   }
 
-  public int getShop_name() {
+  public String getShop_name() {
     return shop_name;
   }
 
-  public void setShop_name(int shop_name) {
+  public void setShop_name(String shop_name) {
     this.shop_name = shop_name;
   }
 
-  public int getLocation() {
+  public String getLocation() {
     return location;
   }
 
-  public void setLocation(int location) {
+  public void setLocation(String location) {
     this.location = location;
   }
 
-  public int getAddress() {
+  public String getAddress() {
     return address;
   }
 
-  public void setAddress(int address) {
+  public void setAddress(String address) {
     this.address = address;
   }
 
-  public int getPhone() {
+  public String getPhone() {
     return phone;
   }
 
-  public void setPhone(int phone) {
+  public void setPhone(String phone) {
     this.phone = phone;
   }
 
-  public int getEmail() {
+  public String getEmail() {
     return email;
   }
 
-  public void setEmail(int email) {
+  public void setEmail(String email) {
     this.email = email;
   }
 
-  public shops(int shop_id, int shop_name, int location, int address, int phone, int email) {
+  public shops(int shop_id, String shop_name, String location, String address, String phone, String email) {
     this.shop_id = shop_id;
     this.shop_name = shop_name;
     this.location = location;
