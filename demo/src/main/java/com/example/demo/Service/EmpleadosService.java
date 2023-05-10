@@ -28,23 +28,45 @@ public class EmpleadosService {
     return listaEmpleado;
   }
 
-  public void CrearEmpleado(int employee_id, int salary, Date hire_date, String position, int user_id) {
-    empleadosRepo.crearEmpleado(employee_id, salary, hire_date, position, user_id);
+  public void CrearEmpleados(String employee_name, String employee_surname, String email, String password, String phone,
+      int salary, String position, Date hire_date) {
+    empleadosRepo.crearEmpleados(employee_name, employee_surname, email, password, phone, salary, position, hire_date);
   }
 
-  public void ModificarEmpleadoSalario(Integer user_id, int salary) {
-    empleadosRepo.modificarEmpleadoSalarioPorId(user_id, salary);
+  public void ModificarEmpleadoNombre(Integer employee_id, String employee_name) {
+    empleadosRepo.modificarEmpleadoNombrePorId(employee_id, employee_name);
   }
 
-  public void ModificarEmpleadoFechaContratacion(Integer user_id, Date hire_date) {
-    empleadosRepo.modificarEmpleadoFechaPorId(user_id, hire_date);
+  public void ModificarEmpleadoApellido(Integer employee_id, String employee_surname) {
+    empleadosRepo.modificarEmpleadoApellidoPorId(employee_id, employee_surname);
   }
 
-  public void ModificarEmpleadoPosicion(Integer user_id, String position) {
-    empleadosRepo.modificarEmpleadosPosicionPorId(user_id, position);
+  public void ModificarEmpleadoEmail(Integer employee_id, String email) {
+    empleadosRepo.modificarEmpleadoEmailPorId(employee_id, email);
   }
 
-  public void BorrarEmpleado(Integer user_id) {
-    empleadosRepo.borrarEmpleadoPorId(user_id);
+  public void ModificarEmpleadoContra(Integer employee_id, String password) {
+    empleadosRepo.modificarEmpleadoContraPorId(employee_id, password);
   }
+
+  public void ModificarEmpleadoTelefono(Integer employee_id, String phone) {
+    empleadosRepo.modificarEmpleadoTelefonoPorId(employee_id, phone);
+  }
+
+  public void ModificarEmpleadoSalario(Integer employee_id, int salary) {
+    empleadosRepo.modificarEmpleadoSalarioPorId(employee_id, salary);
+  }
+
+  public void ModificarEmpleadoPuesto(Integer employee_id, String position) {
+    empleadosRepo.modificarEmpleadoPosicionPorId(employee_id, position);
+  }
+
+  public void ModificarEmpleadoFechaContratacion(Integer employee_id, Date hire_date) {
+    empleadosRepo.modificarEmpleadoFechaPorId(employee_id, hire_date);
+  }
+
+  public void EliminarEmpleado(Integer employee_id){
+    empleadosRepo.borrarEmpleadoPorId(employee_id);
+  }
+
 }
