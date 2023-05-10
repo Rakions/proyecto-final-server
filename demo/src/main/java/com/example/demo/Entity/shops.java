@@ -20,6 +20,7 @@ public class shops {
 
   @Column(name = "shop_name")
   @JsonProperty("shop_name")
+
   private String shop_name;
 
   @Column(name = "location")

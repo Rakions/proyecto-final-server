@@ -1,5 +1,4 @@
 package com.example.demo.Entity;
-
 import java.sql.Date;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
