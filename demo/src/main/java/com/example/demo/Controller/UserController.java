@@ -20,7 +20,7 @@ public class UserController {
 
     //-----------------------------------------CARACTERISTICAS-----------------------------------------\\
     @CrossOrigin(origins = "http://localhost:5173")
-    @GetMapping("/usuarios/consultar")
+    @GetMapping("/cafeusuarios/consultar")
     public List<cafe_users> consultarUsuariosQuery(){
         return userServ.ConsultarUsuarios();
     }

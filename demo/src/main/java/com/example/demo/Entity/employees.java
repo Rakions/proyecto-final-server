@@ -15,11 +15,11 @@ public class employees {
 
     @Column(name = "employee_name")
     @JsonProperty("employee_name")
-    private int employee_name;
+    private String employee_name;
 
     @Column(name = "employee_surname")
     @JsonProperty("employee_surname")
-    private Date employee_surname;
+    private String employee_surname;
 
     @Column(name = "email")
     @JsonProperty("email")
@@ -31,7 +31,7 @@ public class employees {
 
     @Column(name = "phone")
     @JsonProperty("phone")
-    private int phone;
+    private String phone;
 
     @Column(name = "salary")
     @JsonProperty("salary")
@@ -39,11 +39,11 @@ public class employees {
 
     @Column(name = "position")
     @JsonProperty("position")
-    private int position;
+    private String position;
 
     @Column(name = "hire_date")
     @JsonProperty("hire_date")
-    private int hire_date;
+    private Date hire_date;
 
     public int getEmployee_id() {
         return employee_id;
@@ -53,19 +53,19 @@ public class employees {
         this.employee_id = employee_id;
     }
 
-    public int getEmployee_name() {
+    public String getEmployee_name() {
         return employee_name;
     }
 
-    public void setEmployee_name(int employee_name) {
+    public void setEmployee_name(String employee_name) {
         this.employee_name = employee_name;
     }
 
-    public Date getEmployee_surname() {
+    public String getEmployee_surname() {
         return employee_surname;
     }
 
-    public void setEmployee_surname(Date employee_surname) {
+    public void setEmployee_surname(String employee_surname) {
         this.employee_surname = employee_surname;
     }
 
@@ -85,11 +85,11 @@ public class employees {
         this.password = password;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
@@ -101,24 +101,24 @@ public class employees {
         this.salary = salary;
     }
 
-    public int getPosition() {
+    public String getPosition() {
         return position;
     }
 
-    public void setPosition(int position) {
+    public void setPosition(String position) {
         this.position = position;
     }
 
-    public int getHire_date() {
+    public Date getHire_date() {
         return hire_date;
     }
 
-    public void setHire_date(int hire_date) {
+    public void setHire_date(Date hire_date) {
         this.hire_date = hire_date;
     }
 
-    public employees(int employee_id, int employee_name, Date employee_surname, String email, String password,
-            int phone, int salary, int position, int hire_date) {
+    public employees(int employee_id, String employee_name, String employee_surname, String email, String password,
+            String phone, int salary, String position, Date hire_date) {
         this.employee_id = employee_id;
         this.employee_name = employee_name;
         this.employee_surname = employee_surname;
@@ -132,6 +132,8 @@ public class employees {
 
     public employees() {
     }
+
+    
 
     
 }
