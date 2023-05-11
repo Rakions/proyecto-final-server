@@ -26,6 +26,10 @@ public class UsuariosService {
         List<cafe_users> listaUsuario = usuariosRepo.getUsuarioPorId(user_id);
         return listaUsuario;
     }
+    // public List<cafe_users> BuscarUsuarioPorEmail(Set<String> email) {
+    //     List<cafe_users> listaUsuario = usuariosRepo.getUsuarioPorEmail(email);
+    //     return listaUsuario;
+    // }
 
     public void CrearUsuario(String user_name, String user_surname,String email,String password,String username,int phone,Date last_connection) {
         usuariosRepo.crearUsuario(user_name, user_surname, email, password, username, phone, last_connection);

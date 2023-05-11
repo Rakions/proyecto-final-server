@@ -18,31 +18,31 @@ public class CategoriesController {
   private CategoriasService impl;
 
   // -----------------------------------------CARACTERISTICAS-----------------------------------------\\
-  @CrossOrigin(origins = "http://localhost:5173")
+  @CrossOrigin(origins = "http://127.0.0.1:5500")
   @GetMapping("/categorias/consultar")
   public List<categories> consultarCategoriasQuery() {
     return impl.ConsultarCategorias();
   }
 
-  @CrossOrigin(origins = "http://localhost:5173")
+  @CrossOrigin(origins = "http://127.0.0.1:5500")
   @GetMapping("/categorias/buscar")
   public List<categories> buscarCategoriaQuery(@RequestParam(value = "id") Set<Integer> category_id) {
     return impl.BuscarCategoria(category_id);
   }
 
-  @CrossOrigin(origins = "http://localhost:5173")
+  @CrossOrigin(origins = "http://127.0.0.1:5500")
   @PostMapping("/categorias/crear")
   public void crearCategoriaQuery(@RequestBody categories categoria) {
     impl.CrearCategoria(categoria.getCategory_name());
   }
 
-  @CrossOrigin(origins = "http://localhost:5173")
+  @CrossOrigin(origins = "http://127.0.0.1:5500")
   @PutMapping("/categorias/modificar/nombre")
   public void modificarCategoriaNombreQuery(@RequestBody categories categoria) {
     impl.ModificarCategoriaNombre(categoria.getCategory_id(),categoria.getCategory_name());
   }
 
-  @CrossOrigin(origins = "http://localhost:5173")
+  @CrossOrigin(origins = "http://127.0.0.1:5500")
   @DeleteMapping("/categorias/eliminar")
   public void eliminarCategoria(@RequestBody categories categoria) {
     impl.EliminarCategoria(categoria.getCategory_id());
