@@ -33,11 +33,12 @@ public class UserController {
         return userServ.BuscarUsuario(user_id);
     }
 
-    // @CrossOrigin(origins = "http://127.0.0.1:5500")
-    // @GetMapping("/usuarios/buscarEmail")
-    // public List<cafe_users> buscarUsuarioPorEmailQuery(@RequestParam(value = "email") Set<String> email) {
-    //     return userServ.BuscarUsuarioPorEmail(email);
-    // }
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
+    @GetMapping("/usuarios/buscarEmail")
+    public List<cafe_users> buscarUsuarioPorEmailQuery(@RequestParam(value = "email") String email) {
+        System.out.println("he llegado");
+        return userServ.BuscarUsuarioPorEmail(email);
+    }
 
     @CrossOrigin(origins = "http://127.0.0.1:5500")
     @PostMapping("/usuarios/crear")
