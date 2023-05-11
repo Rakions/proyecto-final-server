@@ -25,6 +25,11 @@ public interface UsuariosRepository extends CrudRepository<cafe_users, Integer> 
     @Query(nativeQuery = true, value = getUsuarioQuery)
     List<cafe_users> getUsuarioPorId(Set<Integer> user_id);
 
+    String getUsuarioEmailQuery = "SELECT * FROM cafe_users WHERE email = :email";
+
+    @Query(nativeQuery = true, value = getUsuarioEmailQuery)
+    List<cafe_users> getUsuarioPorEmail(String email);
+
     //crear
     String crearUsuarioQuery = "INSERT INTO cafe_users (user_name,user_surname,email,password,username,phone,last_connection) VALUES (:user_name,:user_surname,:email,:password,:username,:phone,:last_connection)";
 

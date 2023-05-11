@@ -22,6 +22,11 @@ public class UsuariosService {
         return listaUsuarios;
     }
 
+    public List<cafe_users> BuscarUsuarioEmail(String email) {
+        List<cafe_users> listaUsuario = usuariosRepo.getUsuarioPorEmail(email);
+        return listaUsuario;
+    }
+
     public List<cafe_users> BuscarUsuario(Set<Integer> user_id) {
         List<cafe_users> listaUsuario = usuariosRepo.getUsuarioPorId(user_id);
         return listaUsuario;
