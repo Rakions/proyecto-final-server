@@ -55,6 +55,10 @@ public class ProductsService {
         productsRepo.modificarProductsPricePorId(id, price);
     }
 
+    public void ModificarProductsImage(Integer id,String image_url){
+        productsRepo.modificarProductsImagePorId(id, image_url);
+    }
+
     public void EliminarProduct(Integer products_id) {
         productsRepo.eliminarProductsPorId(products_id);
     }

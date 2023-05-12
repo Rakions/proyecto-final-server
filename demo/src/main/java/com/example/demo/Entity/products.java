@@ -43,6 +43,18 @@ public class products {
     @JsonProperty("price")
     private int price;
 
+    @Column(name = "image_url")
+    @JsonProperty("image_url")
+    private String image_url;
+
+    public String getImage_url() {
+        return image_url;
+    }
+
+    public void setImage_url(String image_url) {
+        this.image_url = image_url;
+    }
+
     public int getProducts_id() {
         return products_id;
     }
@@ -99,7 +111,8 @@ public class products {
         this.price = price;
     }
 
-    public products(int products_id, String product_name, String product_description, int stock, int reviews, int category_id, int price) {
+    public products(int products_id, String product_name, String product_description, int stock, int reviews,
+            int category_id, int price, String image_url) {
         this.products_id = products_id;
         this.product_name = product_name;
         this.product_description = product_description;
@@ -107,8 +120,11 @@ public class products {
         this.reviews = reviews;
         this.category_id = category_id;
         this.price = price;
+        this.image_url = image_url;
     }
 
     public products() {
     }
+
+    
 }

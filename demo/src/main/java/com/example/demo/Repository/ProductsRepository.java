@@ -39,6 +39,7 @@ public interface ProductsRepository extends CrudRepository<products, Integer> {
     String modificarProductsReviewsQuery = "UPDATE products SET reviews = :reviews WHERE products.products_id = :id";
     String modificarProductsCatagory_idQuery = "UPDATE products SET category_id = :category_id WHERE products.products_id = :id";
     String modificarProductsPriceQuery = "UPDATE products SET price = :price WHERE products.products_id = :id";
+    String modificarProductsImageQuery = "UPDATE products SET image_url = :image_url WHERE products.products_id = :id";
 
     @Modifying
     @Query(nativeQuery = true, value = modificarProductsProduct_nameQuery)
@@ -65,6 +66,10 @@ public interface ProductsRepository extends CrudRepository<products, Integer> {
     @Modifying
     @Query(nativeQuery = true, value = modificarProductsPriceQuery)
     void modificarProductsPricePorId(Integer id, int price);
+
+    @Modifying
+    @Query(nativeQuery = true, value = modificarProductsImageQuery)
+    void modificarProductsImagePorId(Integer id, String image_url);
 
     //borrar
     String borrarProductsQuery = "DELETE FROM products WHERE products_id = :id";
