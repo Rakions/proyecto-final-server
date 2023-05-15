@@ -27,8 +27,8 @@ public class ProductsService {
         return listaProduct;
     }
 
-    public void CrearProduct(String product_name, String product_description, int stock, int reviews, int category_id, int price) {
-        productsRepo.crearProduct(product_name, product_description, stock, reviews, category_id, price);
+    public void CrearProduct(String product_name, String product_description, int stock, int reviews, int category_id, int price, String image_url) {
+        productsRepo.crearProduct(product_name, product_description, stock, reviews, category_id, price,image_url);
     }
 
     public void ModificarProductsProduct_name(Integer products_id, String products_name) {
