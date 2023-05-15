@@ -23,7 +23,6 @@ public class UserController {
     @CrossOrigin(origins = "http://127.0.0.1:5500")
     @GetMapping("/usuarios/consultar")
     public List<cafe_users> consultarUsuariosQuery() {
-        System.out.println("he llegado");
         return userServ.ConsultarUsuarios();
     }
 
@@ -36,7 +35,6 @@ public class UserController {
     @CrossOrigin(origins = "http://127.0.0.1:5500")
     @GetMapping("/usuarios/buscarEmail")
     public List<cafe_users> buscarUsuarioPorEmailQuery(@RequestParam(value = "email") String email) {
-        System.out.println("he llegado");
         return userServ.BuscarUsuarioPorEmail(email);
     }
 

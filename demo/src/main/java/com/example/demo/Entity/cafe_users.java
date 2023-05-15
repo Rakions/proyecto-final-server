@@ -36,7 +36,7 @@ public class cafe_users {
 
     @Column(name = "phone")
     @JsonProperty("phone")
-    private int phone;
+    private String phone;
 
     @Column(name = "last_connection")
     @JsonProperty("last_connection")
@@ -90,11 +90,11 @@ public class cafe_users {
         this.username = username;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
@@ -106,7 +106,7 @@ public class cafe_users {
         this.last_connection = last_connection;
     }
 
-    public cafe_users(int user_id, String user_name, String user_surname, String email, String password, String username, int phone, Date last_connection) {
+    public cafe_users(int user_id, String user_name, String user_surname, String email, String password, String username, String phone, Date last_connection) {
         this.user_id = user_id;
         this.user_name = user_name;
         this.user_surname = user_surname;

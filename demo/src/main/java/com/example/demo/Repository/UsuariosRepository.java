@@ -34,7 +34,7 @@ public interface UsuariosRepository extends CrudRepository<cafe_users, Integer> 
 
     @Modifying
     @Query(nativeQuery = true, value = crearUsuarioQuery)
-    void crearUsuario(String user_name, String user_surname, String email, String password, String username, int phone, Date last_connection);
+    void crearUsuario(String user_name, String user_surname, String email, String password, String username, String phone, Date last_connection);
 
     //modificar
     String modificarUsuarioNombreQuery = "UPDATE cafe_users SET user_name = :user_name WHERE cafe_users.user_id = :user_id";
@@ -71,7 +71,7 @@ public interface UsuariosRepository extends CrudRepository<cafe_users, Integer> 
 
     @Modifying
     @Query(nativeQuery = true, value = modificarUsuarioTelefonoQuery)
-    void modificarUsuarioTelefonoPorId(Integer user_id, int phone);
+    void modificarUsuarioTelefonoPorId(Integer user_id, String phone);
 
     //borrar
     String borrarUsuarioQuery = "DELETE FROM cafe_users WHERE user_id = :user_id";

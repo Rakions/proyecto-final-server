@@ -31,7 +31,7 @@ public class UsuariosService {
         return listaUsuario;
     }
 
-    public void CrearUsuario(String user_name, String user_surname,String email,String password,String username,int phone,Date last_connection) {
+    public void CrearUsuario(String user_name, String user_surname,String email,String password,String username,String phone,Date last_connection) {
         usuariosRepo.crearUsuario(user_name, user_surname, email, password, username, phone, last_connection);
     }
 
@@ -59,7 +59,7 @@ public class UsuariosService {
         usuariosRepo.modificarUsuarioFechaPorId(user_id, last_connection);
     }
 
-    public void ModificarUsuarioTelefono(Integer user_id, int phone){
+    public void ModificarUsuarioTelefono(Integer user_id, String phone){
         usuariosRepo.modificarUsuarioTelefonoPorId(user_id, phone);
     }
 
