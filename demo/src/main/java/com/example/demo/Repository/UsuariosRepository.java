@@ -44,6 +44,11 @@ public interface UsuariosRepository extends CrudRepository<cafe_users, Integer> 
     String modificarUsuarioContraQuery = "UPDATE cafe_users SET password = :password WHERE cafe_users.user_id = :user_id";
     String modificarUsuarioFechaQuery = "UPDATE cafe_users SET last_connection = :last_connection WHERE cafe_users.user_id = :user_id";
     String modificarUsuarioTelefonoQuery = "UPDATE cafe_users SET phone = :phone WHERE cafe_users.user_id = :user_id";
+    String modificarUsuarioTodoQuery = "update cafe_users set user_name = :user_name,user_surname = :user_surname,email = :email,password = :password,username = :username,phone = :phone where cafe_users.user_id = :user_id";
+
+    @Modifying
+    @Query(nativeQuery = true, value = modificarUsuarioTodoQuery)
+    void modficarUsuarioTodoPorId(Integer user_id,String user_name,String user_surname,String email,String password,String username,String phone);
 
     @Modifying
     @Query(nativeQuery = true, value = modificarUsuarioNombreQuery)

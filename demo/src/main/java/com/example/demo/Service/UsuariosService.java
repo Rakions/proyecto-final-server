@@ -35,6 +35,10 @@ public class UsuariosService {
         usuariosRepo.crearUsuario(user_name, user_surname, email, password, username, phone, last_connection);
     }
 
+    public void ModificarUsuarioTodo(Integer user_id,String user_name,String user_surname,String email,String password,String username,String phone){
+        usuariosRepo.modficarUsuarioTodoPorId(user_id, user_name, user_surname, email, password, username, phone);
+    }
+
     public void ModificarUsuarioNombre(Integer user_id, String user_name) {
         usuariosRepo.modificarUsuarioNombrePorId(user_id, user_name);
     }

@@ -40,10 +40,15 @@ public interface ProductsRepository extends CrudRepository<products, Integer> {
     String modificarProductsCatagory_idQuery = "UPDATE products SET category_id = :category_id WHERE products.products_id = :id";
     String modificarProductsPriceQuery = "UPDATE products SET price = :price WHERE products.products_id = :id";
     String modificarProductsImageQuery = "UPDATE products SET image_url = :image_url WHERE products.products_id = :id";
+    String modificarProductsTodoQuery = "update products set product_name = :product_name,product_description = :product_description,stock = :stock,reviews = :reviews,category_id = :category_id,price = :price,image_url = :image_url where products.products_id = :id";
 
     @Modifying
     @Query(nativeQuery = true, value = modificarProductsProduct_nameQuery)
     void modificarProductsProduct_namePorId(Integer id, String product_name);
+
+    @Modifying
+    @Query(nativeQuery = true, value = modificarProductsTodoQuery)
+    void modificarProductsTodoPorId(Integer id, String product_name,String product_description,int stock,int reviews,int category_id,int price,String image_url);
 
     @Modifying
     @Query(nativeQuery = true, value = modificarProductsProduct_descriptionQuery)

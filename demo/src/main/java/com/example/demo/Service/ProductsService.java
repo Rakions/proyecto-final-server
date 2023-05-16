@@ -31,6 +31,10 @@ public class ProductsService {
         productsRepo.crearProduct(product_name, product_description, stock, reviews, category_id, price,image_url);
     }
 
+    public void ModificarProductosTodo(Integer products_id, String products_name,String product_description,int stock,int reviews,int category_id,int price,String image_url) {
+        productsRepo.modificarProductsTodoPorId(products_id, product_description, product_description, stock, reviews, category_id, price, image_url);
+    }
+
     public void ModificarProductsProduct_name(Integer products_id, String products_name) {
         productsRepo.modificarProductsProduct_namePorId(products_id, products_name);
     }

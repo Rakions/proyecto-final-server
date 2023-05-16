@@ -88,6 +88,12 @@ public class UserController {
     }
 
     @CrossOrigin(origins = "http://127.0.0.1:5500")
+    @PutMapping("/usuarios/modificar/todo")
+    public void modificarUsarioTodoQuery(@RequestBody cafe_users usuario) {
+        userServ.ModificarUsuarioTodo(usuario.getUser_id(), usuario.getUser_name(),usuario.getSurname(),usuario.getEmail(),usuario.getPassword(),usuario.getUsername(),usuario.getPhone());
+    }
+
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
     @DeleteMapping("/usuarios/eliminar")
     public void eliminarUsuarioQuery(@RequestBody cafe_users usuario) {
         userServ.EliminarUsuario(usuario.getUser_id());

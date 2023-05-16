@@ -44,6 +44,12 @@ public class ProductsController {
     }
 
     @CrossOrigin(origins = "http://127.0.0.1:5500")
+    @PutMapping("/products/modificar/todo")
+    public void modificarProductsTodo( @RequestBody products products){
+        productsServ.ModificarProductosTodo(products.getProducts_id(), products.getProduct_name(), products.getProduct_description(),products.getStock(),products.getReviews(),products.getCategory_id(),products.getPrice(),products.getImage_url());
+    }
+
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
     @PutMapping("/products/modificar/product_description")
     public void modificarProductsProduct_descriptionQuery( @RequestBody products products){
         productsServ.ModificarProductsProduct_description(products.getProducts_id(), products.getProduct_description());
