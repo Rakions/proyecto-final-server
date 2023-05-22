@@ -1,7 +1,6 @@
 package com.example.demo.Controller;
 
 import com.example.demo.Entity.*;
-import com.example.demo.Service.CategoriasService;
 import com.example.demo.Service.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Set;
-import java.sql.Date;
 
 @RestController
 @RequestMapping("API")

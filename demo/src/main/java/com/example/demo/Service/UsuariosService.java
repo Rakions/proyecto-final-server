@@ -2,7 +2,6 @@ package com.example.demo.Service;
 
 import com.example.demo.Entity.cafe_users;
 import com.example.demo.Repository.UsuariosRepository;
-import com.example.demo.Repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

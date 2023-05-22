@@ -2,7 +2,6 @@ package com.example.demo.Repository;
 
 import com.example.demo.Entity.shops;
 
-import java.sql.Date;
 import java.util.List;
 import java.util.Set;
 
