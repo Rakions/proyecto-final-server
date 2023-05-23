@@ -30,7 +30,7 @@ public class SessionsController {
     }
 
     @CrossOrigin(origins = "http://127.0.0.1:5500")
-    @GetMapping("/sessionsToken/buscar")
+    @GetMapping("/sessions/buscarToken")
     public List<sessions> buscarSessionTokenQuery( @RequestParam(value = "token") String token){
         return sessionsServ.BuscarSessionToken(token);
     }
@@ -61,7 +61,7 @@ public class SessionsController {
     }
 
     @CrossOrigin(origins = "http://127.0.0.1:5500")
-    @DeleteMapping("/sessions/eliminar")
+    @DeleteMapping("/sessions/eliminarToken")
     public void eliminarSessionsTokenQuery( @RequestBody sessions session){
         sessionsServ.eliminarSessionsToken(session.getToken());
     }

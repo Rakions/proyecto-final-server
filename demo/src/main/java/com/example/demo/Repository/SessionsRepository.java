@@ -24,7 +24,7 @@ public interface SessionsRepository extends CrudRepository<sessions, Integer> {
     @Query(nativeQuery = true, value = getSessionQuery)
     List<sessions> getSessionsPorId(Set<Integer> id);
 
-    String getSessionTokenQuery = "SELECT * FROM sessions WHERE user_id = :id";
+    String getSessionTokenQuery = "SELECT * FROM sessions WHERE token = :token";
 
     @Query(nativeQuery = true, value = getSessionTokenQuery)
     List<sessions> getSessionsPorToken(String token);
@@ -50,7 +50,7 @@ public interface SessionsRepository extends CrudRepository<sessions, Integer> {
 
 
     //borrar
-    String borrarSessionsQuery = "DELETE FROM Sessions WHERE user_id = :id";
+    String borrarSessionsQuery = "DELETE FROM Sessions WHERE user_id = :user_id";
 
     @Modifying
     @Query(nativeQuery = true, value = borrarSessionsQuery)
