@@ -10,6 +10,10 @@ import jakarta.persistence.*;
 public class order_details {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "order_details_id")
+    @JsonProperty("order_details_id")
+    private int order_details_id;
+
     @Column(name = "orders_id")
     @JsonProperty("orders_id")
     private int orders_id;
