@@ -25,7 +25,7 @@ public class SessionsController {
 
     @CrossOrigin(origins = "http://127.0.0.1:5500")
     @GetMapping("/sessions/buscar")
-    public List<sessions> buscarSessionQuery( @RequestParam(value = "user_id") Set<Integer> user_id){
+    public List<sessions> buscarSessionQuery( @RequestParam(value = "user_id") Set<Integer> user_id){   
         return sessionsServ.BuscarSession(user_id);
     }
 

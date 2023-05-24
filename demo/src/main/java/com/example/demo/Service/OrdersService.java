@@ -26,8 +26,13 @@ public class OrdersService {
         return listaOrders;
     }
 
-    public void CrearOrders(int user_id, int shop_id, Date order_date, String address, int total_price) {
-        ordersRepo.crearOrders(user_id, shop_id, order_date, address, total_price);
+    public List<orders> BuscarOrdersUser_id(Set<Integer> user_id) {
+        List<orders> listaOrders = ordersRepo.getOrdersPorUser_id(user_id);
+        return listaOrders;
+    }
+
+    public void CrearOrders(int user_id, int shop_id, Date order_date, String address, int total_price, String order_state) {
+        ordersRepo.crearOrders(user_id, shop_id, order_date, address, total_price, order_state);
     }
 
     public void modificarOrdersUser_id(Integer orders_id, int user_id) {
@@ -48,6 +53,10 @@ public class OrdersService {
 
     public void modificarOrdersTotal_price(Integer orders_id, int total_price){
         ordersRepo.modificarOrdersTotal_pricePorId(orders_id, total_price);
+    }
+
+    public void modificarOrdersOrder_state(Integer orders_id, String order_state){
+        ordersRepo.modificarOrdersOrder_statePorId(orders_id, order_state);
     }
 
 

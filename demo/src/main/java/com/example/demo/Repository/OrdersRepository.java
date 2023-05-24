@@ -25,12 +25,17 @@ public interface OrdersRepository extends CrudRepository<orders, Integer> {
     @Query(nativeQuery = true, value = getOrderQuery)
     List<orders> getOrdersPorId(Set<Integer> id);
 
+    String getOrderUser_idQuery = "SELECT * FROM orders WHERE user_id = :id";
+
+    @Query(nativeQuery = true, value = getOrderUser_idQuery)
+    List<orders> getOrdersPorUser_id(Set<Integer> id);
+
     //crear
-    String crearOrdersQuery = "INSERT INTO orders (user_id,shop_id,order_date,address,total_price) VALUES (:user_id,:shop_id,:order_date,:address,:total_price)";
+    String crearOrdersQuery = "INSERT INTO orders (user_id,shop_id,order_date,address,total_price,order_state) VALUES (:user_id,:shop_id,:order_date,:address,:total_price,:order_state)";
 
     @Modifying
     @Query(nativeQuery = true, value = crearOrdersQuery)
-    void crearOrders(int user_id, int shop_id, Date order_date, String address, int total_price);
+    void crearOrders(int user_id, int shop_id, Date order_date, String address, int total_price, String order_state);
 
     //modificar
     String modificarOrdersUser_idQuery = "UPDATE Orders SET user_id = :user_id WHERE orders.orders_id = :id";
@@ -38,6 +43,7 @@ public interface OrdersRepository extends CrudRepository<orders, Integer> {
     String modificarOrdersOrder_dateQuery = "UPDATE Orders SET order_date = :order_date WHERE orders.orders_id = :id";
     String modificarOrdersAddressQuery = "UPDATE Orders SET address = :address WHERE orders.orders_id = :id";
     String modificarOrdersTotal_priceQuery = "UPDATE Orders SET total_price = :total_price WHERE orders.orders_id = :id";
+    String modificarOrdersOrder_stateQuery = "UPDATE Orders SET order_state = :order_state WHERE orders.orders_id = :id";
 
     @Modifying
     @Query(nativeQuery = true, value = modificarOrdersUser_idQuery)
@@ -59,6 +65,10 @@ public interface OrdersRepository extends CrudRepository<orders, Integer> {
     @Modifying
     @Query(nativeQuery = true, value = modificarOrdersTotal_priceQuery)
     void modificarOrdersTotal_pricePorId(Integer id, int total_price);
+
+    @Modifying
+    @Query(nativeQuery = true, value = modificarOrdersOrder_stateQuery)
+    void modificarOrdersOrder_statePorId(Integer id, String order_state);
 
 
 

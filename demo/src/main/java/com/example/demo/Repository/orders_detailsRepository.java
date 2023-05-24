@@ -24,6 +24,16 @@ public interface orders_detailsRepository extends CrudRepository<order_details, 
     @Query(nativeQuery = true, value = getOrder_detailQuery)
     List<order_details> getOrder_detail(Set<Integer> orders_id);
 
+    String getOrder_detailProductQuery = "SELECT * FROM order_details WHERE product_id = :product_id";
+
+    @Query(nativeQuery = true, value = getOrder_detailProductQuery)
+    List<order_details> getOrder_detailProduct(Set<Integer> product_id);
+
+    String getOrder_detailOrderProductQuery = "SELECT * FROM order_details WHERE orders_id = :orders_id and product_id = :product_id";
+
+    @Query(nativeQuery = true, value = getOrder_detailOrderProductQuery)
+    List<order_details> getOrder_detailOrderProduct(Set<Integer> orders_id, Set<Integer> product_id);
+
     //crear
     String crearOrder_details = "INSERT INTO order_details (orders_id,product_id,quantity) VALUES (:orders_id,:product_id,:quantity)";
 

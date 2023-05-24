@@ -30,6 +30,18 @@ public class Orders_detailsController {
   }
 
   @CrossOrigin(origins = "http://127.0.0.1:5500")
+  @GetMapping("/orders_details/buscarProduct")
+  public List<order_details> consultarOrder_detailsProductQuery(@RequestParam(value = "id") Set<Integer> product_id) {
+    return impl.BuscarOrder_detailProduct(product_id);
+  }
+
+  @CrossOrigin(origins = "http://127.0.0.1:5500")
+  @GetMapping("/orders_details/buscarOrderProduct")
+  public List<order_details> consultarOrder_detailsOrderProductQuery(@RequestParam(value = "orders_id") Set<Integer> orders_id, @RequestParam(value = "product_id") Set<Integer> product_id) {
+    return impl.BuscarOrder_detailOrderProduct(orders_id, product_id);
+  }
+
+  @CrossOrigin(origins = "http://127.0.0.1:5500")
   @PostMapping("/orders_details/crear")
   public void crearOrders_employeesQuery(@RequestBody order_details order_details) {
     impl.CrearOrder_details(order_details.getOrders_id(),order_details.getProduct_id(),order_details.getQuantity());
