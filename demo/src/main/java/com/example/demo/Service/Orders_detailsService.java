@@ -34,10 +34,14 @@ public class Orders_detailsService {
     List<order_details> listaOrders_detailsOrderProduct = orders_detailsRepo.getOrder_detailOrderProduct(orders_id, product_id);
     return listaOrders_detailsOrderProduct;
   }
-
+  
   public void CrearOrder_details(int orders_id,int product_id,int quantity) {
     orders_detailsRepo.crearOrder_details(orders_id,product_id,quantity);
   }
+
+  public void modificarOrders_detailsQuantity(int orders_id, int product_id, int quantity){
+    orders_detailsRepo.modificarOrders_detailsQuantityPorId(orders_id, product_id, quantity);
+}
 
   public void EliminarOrder_details(Integer orders_id){
     orders_detailsRepo.borrarOrder_deailsPorId(orders_id);

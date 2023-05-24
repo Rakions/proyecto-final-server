@@ -42,11 +42,11 @@ public interface orders_detailsRepository extends CrudRepository<order_details, 
     void crearOrder_details(int orders_id,int product_id,int quantity);
 
     //modificar
-    String modificarOrder_detailsCantidadQuery = "update order_details set quantity = :quantity where order_details.orders_id = :orders_id";
+    String modificarOrder_detailsCantidadQuery = "update order_details set quantity = :quantity where order_details.orders_id = :orders_id and product_id = :product_id";
 
     @Modifying
     @Query(nativeQuery = true, value = modificarOrder_detailsCantidadQuery)
-    void modificarOrder_detailsCantidadPorId(Integer orders_id, int quantity);
+    void modificarOrders_detailsQuantityPorId(int orders_id, int product_id, int quantity);
 
      //borrar
      String borrarOrder_detailsQuery= "DELETE FROM orders_details WHERE orders_id = :orders_id";

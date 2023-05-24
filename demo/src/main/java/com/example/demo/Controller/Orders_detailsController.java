@@ -14,42 +14,48 @@ import java.util.Set;
 public class Orders_detailsController {
 
   @Autowired
-  private Orders_detailsService impl;
+  private Orders_detailsService ordDetailsServ;
 
   // -----------------------------------------CARACTERISTICAS-----------------------------------------\\
   @CrossOrigin(origins = "http://127.0.0.1:5500")
   @GetMapping("/orders_details/consultar")
   public List<order_details> consultarOrders_detailsemployeesQuery() {
-    return impl.ConsultarOrder_details();
+    return ordDetailsServ.ConsultarOrder_details();
   }
 
   @CrossOrigin(origins = "http://127.0.0.1:5500")
   @GetMapping("/orders_details/buscar")
   public List<order_details> consultarOrder_detailsQuery(@RequestParam(value = "id") Set<Integer> orders_id) {
-    return impl.BuscarOrder_detail(orders_id);
+    return ordDetailsServ.BuscarOrder_detail(orders_id);
   }
 
   @CrossOrigin(origins = "http://127.0.0.1:5500")
   @GetMapping("/orders_details/buscarProduct")
   public List<order_details> consultarOrder_detailsProductQuery(@RequestParam(value = "id") Set<Integer> product_id) {
-    return impl.BuscarOrder_detailProduct(product_id);
+    return ordDetailsServ.BuscarOrder_detailProduct(product_id);
   }
 
   @CrossOrigin(origins = "http://127.0.0.1:5500")
   @GetMapping("/orders_details/buscarOrderProduct")
   public List<order_details> consultarOrder_detailsOrderProductQuery(@RequestParam(value = "orders_id") Set<Integer> orders_id, @RequestParam(value = "product_id") Set<Integer> product_id) {
-    return impl.BuscarOrder_detailOrderProduct(orders_id, product_id);
+    return ordDetailsServ.BuscarOrder_detailOrderProduct(orders_id, product_id);
   }
 
   @CrossOrigin(origins = "http://127.0.0.1:5500")
   @PostMapping("/orders_details/crear")
   public void crearOrders_employeesQuery(@RequestBody order_details order_details) {
-    impl.CrearOrder_details(order_details.getOrders_id(),order_details.getProduct_id(),order_details.getQuantity());
+    ordDetailsServ.CrearOrder_details(order_details.getOrders_id(),order_details.getProduct_id(),order_details.getQuantity());
   }
 
   @CrossOrigin(origins = "http://127.0.0.1:5500")
+  @PutMapping("/orders_details/modificar/quantity")
+  public void modificarOrders_detailsQuantityQuery( @RequestBody order_details order_details){
+    ordDetailsServ.modificarOrders_detailsQuantity(order_details.getOrders_id(), order_details.getProduct_id(), order_details.getQuantity());
+  }
+  
+  @CrossOrigin(origins = "http://127.0.0.1:5500")
   @DeleteMapping("/orders_details/eliminar")
   public void eliminarOrders_employees(@RequestBody order_details order_details) {
-    impl.EliminarOrder_details(order_details.getOrders_id());
+    ordDetailsServ.EliminarOrder_details(order_details.getOrders_id());
   }
 }
