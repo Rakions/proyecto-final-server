@@ -43,8 +43,8 @@ public class Orders_detailsService {
     orders_detailsRepo.modificarOrders_detailsQuantityPorId(orders_id, product_id, quantity);
 }
 
-  public void EliminarOrder_details(Integer orders_id){
-    orders_detailsRepo.borrarOrder_deailsPorId(orders_id);
+  public void EliminarOrder_details(int orders_id, int product_id){
+    orders_detailsRepo.borrarOrder_deailsPorId(orders_id, product_id);
   }
 
 }
