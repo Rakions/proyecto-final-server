@@ -86,7 +86,7 @@ public class OrdersController {
     }
 
     @CrossOrigin(origins = "http://127.0.0.1:5500")
-    @PutMapping("/orders/modificar/order_name")
+    @PutMapping("/orders/modificar/order_surname")
     public void modificarOrdersOrder_surnameQuery(@RequestBody orders order){
         ordersServ.modificarOrdersOrder_surname(order.getOrders_id(), order.getOrder_surname());
     }
