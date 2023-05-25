@@ -49,9 +49,9 @@ public interface orders_detailsRepository extends CrudRepository<order_details, 
     void modificarOrders_detailsQuantityPorId(int orders_id, int product_id, int quantity);
 
      //borrar
-     String borrarOrder_detailsQuery= "DELETE FROM orders_details WHERE orders_id = :orders_id";
+     String borrarOrder_detailsQuery= "DELETE FROM order_details WHERE orders_id = :orders_id and product_id = :product_id";
 
      @Modifying
      @Query(nativeQuery = true, value = borrarOrder_detailsQuery)
-     void borrarOrder_deailsPorId(Integer orders_id);
+     void borrarOrder_deailsPorId(int orders_id, int product_id);
  }

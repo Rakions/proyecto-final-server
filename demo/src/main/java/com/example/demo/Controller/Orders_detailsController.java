@@ -52,10 +52,10 @@ public class Orders_detailsController {
   public void modificarOrders_detailsQuantityQuery( @RequestBody order_details order_details){
     ordDetailsServ.modificarOrders_detailsQuantity(order_details.getOrders_id(), order_details.getProduct_id(), order_details.getQuantity());
   }
-  
+
   @CrossOrigin(origins = "http://127.0.0.1:5500")
   @DeleteMapping("/orders_details/eliminar")
   public void eliminarOrders_employees(@RequestBody order_details order_details) {
-    ordDetailsServ.EliminarOrder_details(order_details.getOrders_id());
+    ordDetailsServ.EliminarOrder_details(order_details.getOrders_id(), order_details.getProduct_id());
   }
 }
