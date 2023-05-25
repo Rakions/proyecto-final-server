@@ -45,6 +45,14 @@ public class orders {
     @JsonProperty("order_state")
     private String order_state;
 
+    @Column(name = "order_name")
+    @JsonProperty("order_name")
+    private String order_name;
+
+    @Column(name = "order_surname")
+    @JsonProperty("order_surname")
+    private String order_surname;
+
     public int getOrders_id() {
         return orders_id;
     }
@@ -101,7 +109,24 @@ public class orders {
         this.order_state = order_state;
     }
 
-    public orders(int orders_id, int user_id, int shop_id, Date order_date, String address, int total_price, String order_state) {
+    public String getOrder_name() {
+        return order_name;
+    }
+
+    public void setOrder_name(String order_name) {
+        this.order_name = order_name;
+    }
+
+    public String getOrder_surname() {
+        return order_surname;
+    }
+
+    public void setOrder_surname(String order_surname) {
+        this.order_surname = order_surname;
+    }
+
+    public orders(int orders_id, int user_id, int shop_id, Date order_date, String address, int total_price,
+            String order_state, String order_name, String order_surname) {
         this.orders_id = orders_id;
         this.user_id = user_id;
         this.shop_id = shop_id;
@@ -109,10 +134,10 @@ public class orders {
         this.address = address;
         this.total_price = total_price;
         this.order_state = order_state;
+        this.order_name = order_name;
+        this.order_surname = order_surname;
     }
 
     public orders() {
-    }
-
-    
+    }   
 }

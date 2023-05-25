@@ -59,6 +59,13 @@ public class OrdersService {
         ordersRepo.modificarOrdersOrder_statePorId(orders_id, order_state);
     }
 
+    public void modificarOrdersOrder_name(Integer orders_id, String order_name){
+        ordersRepo.modificarOrdersOrder_namePorId(orders_id, order_name);
+    }
+
+    public void modificarOrdersOrder_surname(Integer orders_id, String order_surname){
+        ordersRepo.modificarOrdersOrder_surnamePorId(orders_id, order_surname);
+    }
 
     public void eliminarOrders(Integer orders_id) {
         ordersRepo.eliminarOrdersPorId(orders_id);

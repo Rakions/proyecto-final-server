@@ -44,6 +44,8 @@ public interface OrdersRepository extends CrudRepository<orders, Integer> {
     String modificarOrdersAddressQuery = "UPDATE Orders SET address = :address WHERE orders.orders_id = :id";
     String modificarOrdersTotal_priceQuery = "UPDATE Orders SET total_price = :total_price WHERE orders.orders_id = :id";
     String modificarOrdersOrder_stateQuery = "UPDATE Orders SET order_state = :order_state WHERE orders.orders_id = :id";
+    String modificarOrdesOrder_nameQuery = "update orders set order_name = :order_name where orders.orders_id = :id";
+    String modificarOrdersOrder_surnameQuery = "update orders set order_surname = :order_surname where orders.orders_id = :id";
 
     @Modifying
     @Query(nativeQuery = true, value = modificarOrdersUser_idQuery)
@@ -69,6 +71,14 @@ public interface OrdersRepository extends CrudRepository<orders, Integer> {
     @Modifying
     @Query(nativeQuery = true, value = modificarOrdersOrder_stateQuery)
     void modificarOrdersOrder_statePorId(Integer id, String order_state);
+
+    @Modifying
+    @Query(nativeQuery = true, value = modificarOrdesOrder_nameQuery)
+    void modificarOrdersOrder_namePorId(Integer id, String order_name);
+
+    @Modifying
+    @Query(nativeQuery = true, value = modificarOrdersOrder_surnameQuery)
+    void modificarOrdersOrder_surnamePorId(Integer id, String order_surname);
 
 
 
