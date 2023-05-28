@@ -39,7 +39,7 @@ public class orders {
 
     @Column(name = "total_price")
     @JsonProperty("total_price")
-    private int total_price;
+    private float total_price;
 
     @Column(name = "order_state")
     @JsonProperty("order_state")
@@ -93,11 +93,11 @@ public class orders {
         this.address = address;
     }
 
-    public int getTotal_price() {
+    public float getTotal_price() {
         return total_price;
     }
 
-    public void setTotal_price(int total_price) {
+    public void setTotal_price(float total_price) {
         this.total_price = total_price;
     }
 

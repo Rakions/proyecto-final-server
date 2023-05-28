@@ -35,7 +35,7 @@ public interface OrdersRepository extends CrudRepository<orders, Integer> {
 
     @Modifying
     @Query(nativeQuery = true, value = crearOrdersQuery)
-    void crearOrders(int user_id, int shop_id, Date order_date, String address, int total_price, String order_state);
+    void crearOrders(int user_id, int shop_id, Date order_date, String address, float total_price, String order_state);
 
     //modificar
     String modificarOrdersUser_idQuery = "UPDATE Orders SET user_id = :user_id WHERE orders.orders_id = :id";
@@ -66,7 +66,7 @@ public interface OrdersRepository extends CrudRepository<orders, Integer> {
 
     @Modifying
     @Query(nativeQuery = true, value = modificarOrdersTotal_priceQuery)
-    void modificarOrdersTotal_pricePorId(Integer id, int total_price);
+    void modificarOrdersTotal_pricePorId(Integer id, float total_price);
 
     @Modifying
     @Query(nativeQuery = true, value = modificarOrdersOrder_stateQuery)

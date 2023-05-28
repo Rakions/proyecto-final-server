@@ -25,11 +25,11 @@ public class ProductsService {
         return listaProduct;
     }
 
-    public void CrearProduct(String product_name, String product_description, int stock, int reviews, int category_id, int price, String image_url) {
+    public void CrearProduct(String product_name, String product_description, int stock, int reviews, int category_id, float price, String image_url) {
         productsRepo.crearProduct(product_name, product_description, stock, reviews, category_id, price,image_url);
     }
 
-    public void ModificarProductosTodo(Integer products_id, String products_name,String product_description,int stock,int reviews,int category_id,int price,String image_url) {
+    public void ModificarProductosTodo(Integer products_id, String products_name,String product_description,int stock,int reviews,int category_id,float price,String image_url) {
         productsRepo.modificarProductsTodoPorId(products_id, product_description, product_description, stock, reviews, category_id, price, image_url);
     }
 
@@ -53,7 +53,7 @@ public class ProductsService {
         productsRepo.modificarProductsCategory_idPorId(id, category_id);
     }
 
-    public void ModificarProductsPrice(Integer id, int price){
+    public void ModificarProductsPrice(Integer id, float price){
         productsRepo.modificarProductsPricePorId(id, price);
     }
 

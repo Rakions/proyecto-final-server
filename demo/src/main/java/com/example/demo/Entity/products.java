@@ -41,7 +41,7 @@ public class products {
 
     @Column(name = "price")
     @JsonProperty("price")
-    private int price;
+    private float price;
 
     @Column(name = "image_url")
     @JsonProperty("image_url")
@@ -103,11 +103,11 @@ public class products {
         this.category_id = category_id;
     }
 
-    public int getPrice() {
+    public float getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 
