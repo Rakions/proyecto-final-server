@@ -1,6 +1,6 @@
 package com.example.demo.Service;
 
-import com.example.demo.Entity.cart_details;
+import com.example.demo.Entity.carts_details;
 import com.example.demo.Repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,23 +15,23 @@ public class Carts_detailsService {
   private carts_detailsRepository carts_detailsRepo;
 
   // -----------------------------------------Categoria-----------------------------------------\\
-  public List<cart_details> ConsultarCart_details() {
-    List<cart_details> listaCarts_details = carts_detailsRepo.getCart_details();
+  public List<carts_details> ConsultarCart_details() {
+    List<carts_details> listaCarts_details = carts_detailsRepo.getCart_details();
     return listaCarts_details;
   }
 
-  public List<cart_details> BuscarCart_detail(Set<Integer> carts_id) {
-    List<cart_details> listaCarts_details = carts_detailsRepo.getCart_detail(carts_id);
+  public List<carts_details> BuscarCart_detail(Set<Integer> carts_id) {
+    List<carts_details> listaCarts_details = carts_detailsRepo.getCart_detail(carts_id);
     return listaCarts_details;
   }
 
-  public List<cart_details> BuscarCart_detailProduct(Set<Integer> product_id) {
-    List<cart_details> listaCarts_detailsProduct = carts_detailsRepo.getCart_detailProduct(product_id);
+  public List<carts_details> BuscarCart_detailProduct(Set<Integer> product_id) {
+    List<carts_details> listaCarts_detailsProduct = carts_detailsRepo.getCart_detailProduct(product_id);
     return listaCarts_detailsProduct;
   }
 
-  public List<cart_details> BuscarCart_detailCartProduct(Set<Integer> carts_id, Set<Integer> product_id) {
-    List<cart_details> listaCarts_detailsCartProduct = carts_detailsRepo.getCart_detailCartProduct(carts_id, product_id);
+  public List<carts_details> BuscarCart_detailCartProduct(Set<Integer> carts_id, Set<Integer> product_id) {
+    List<carts_details> listaCarts_detailsCartProduct = carts_detailsRepo.getCart_detailCartProduct(carts_id, product_id);
     return listaCarts_detailsCartProduct;
   }
   

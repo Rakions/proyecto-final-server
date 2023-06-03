@@ -6,8 +6,8 @@ import jakarta.persistence.*;
 
 
 @Entity
-@Table(name = "cart_details")
-public class cart_details {
+@Table(name = "carts_details")
+public class carts_details {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cart_details_id")
@@ -50,12 +50,12 @@ public class cart_details {
         this.quantity = quantity;
     }
 
-    public cart_details(int carts_id, int product_id, int quantity) {
+    public carts_details(int carts_id, int product_id, int quantity) {
         this.carts_id = carts_id;
         this.product_id = product_id;
         this.quantity = quantity;
     }
 
-    public cart_details() {
+    public carts_details() {
     }
 }

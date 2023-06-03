@@ -31,8 +31,13 @@ public class cartsService {
   }
 
   
-  public void CrearCart(int user_id) {
-    cartsRepo.crearCart(user_id);
+  public void modificarCartsTotal_price(Integer carts_id, float total_price){
+    cartsRepo.modificarCartsTotal_pricePorId(carts_id, total_price);
+}
+
+  
+  public void CrearCart(int user_id, float total_price) {
+    cartsRepo.crearCart(user_id, total_price);
   }
 
 

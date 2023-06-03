@@ -1,6 +1,6 @@
 package com.example.demo.Repository;
 
-import com.example.demo.Entity.cart_details;
+import com.example.demo.Entity.carts_details;
 
 import java.util.List;
 import java.util.Set;
@@ -11,28 +11,28 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Transactional
-public interface carts_detailsRepository extends CrudRepository<cart_details, Integer> {
+public interface carts_detailsRepository extends CrudRepository<carts_details, Integer> {
     //consultar
-    String getCart_detailsQuery = "SELECT * FROM cart_details";
+    String getCart_detailsQuery = "SELECT * FROM carts_details";
 
     @Query(nativeQuery = true, value = getCart_detailsQuery)
-    List<cart_details> getCart_details();
+    List<carts_details> getCart_details();
 
     //buscar
     String getCart_detailQuery = "SELECT * FROM cart_details WHERE carts_id = :carts_id";
 
     @Query(nativeQuery = true, value = getCart_detailQuery)
-    List<cart_details> getCart_detail(Set<Integer> carts_id);
+    List<carts_details> getCart_detail(Set<Integer> carts_id);
 
     String getCart_detailProductQuery = "SELECT * FROM cart_details WHERE product_id = :product_id";
 
     @Query(nativeQuery = true, value = getCart_detailProductQuery)
-    List<cart_details> getCart_detailProduct(Set<Integer> product_id);
+    List<carts_details> getCart_detailProduct(Set<Integer> product_id);
 
     String getCart_detailCartProductQuery = "SELECT * FROM cart_details WHERE carts_id = :carts_id and product_id = :product_id";
 
     @Query(nativeQuery = true, value = getCart_detailCartProductQuery)
-    List<cart_details> getCart_detailCartProduct(Set<Integer> carts_id, Set<Integer> product_id);
+    List<carts_details> getCart_detailCartProduct(Set<Integer> carts_id, Set<Integer> product_id);
 
     //crear
     String crearCart_details = "INSERT INTO cart_details (carts_id,product_id,quantity) VALUES (:carts_id,:product_id,:quantity)";

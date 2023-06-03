@@ -14,48 +14,48 @@ import java.util.Set;
 public class Carts_detailsController {
 
   @Autowired
-  private Carts_detailsService ordDetailsServ;
+  private Carts_detailsService cartDetailsServ;
 
   // -----------------------------------------CARACTERISTICAS-----------------------------------------\\
   @CrossOrigin(origins = "http://127.0.0.1:5500")
   @GetMapping("/carts_details/consultar")
-  public List<cart_details> consultarCarts_detailsemployeesQuery() {
-    return ordDetailsServ.ConsultarCart_details();
+  public List<carts_details> consultarCarts_detailsQuery() {
+    return cartDetailsServ.ConsultarCart_details();
   }
 
   @CrossOrigin(origins = "http://127.0.0.1:5500")
   @GetMapping("/carts_details/buscar")
-  public List<cart_details> consultarCart_detailsQuery(@RequestParam(value = "id") Set<Integer> carts_id) {
-    return ordDetailsServ.BuscarCart_detail(carts_id);
+  public List<carts_details> buscarCart_detailsQuery(@RequestParam(value = "id") Set<Integer> carts_id) {
+    return cartDetailsServ.BuscarCart_detail(carts_id);
   }
 
   @CrossOrigin(origins = "http://127.0.0.1:5500")
   @GetMapping("/carts_details/buscarProduct")
-  public List<cart_details> consultarCart_detailsProductQuery(@RequestParam(value = "id") Set<Integer> product_id) {
-    return ordDetailsServ.BuscarCart_detailProduct(product_id);
+  public List<carts_details> buscarCart_detailsProductQuery(@RequestParam(value = "id") Set<Integer> product_id) {
+    return cartDetailsServ.BuscarCart_detailProduct(product_id);
   }
 
   @CrossOrigin(origins = "http://127.0.0.1:5500")
   @GetMapping("/carts_details/buscarCartProduct")
-  public List<cart_details> consultarCart_detailsCartProductQuery(@RequestParam(value = "carts_id") Set<Integer> carts_id, @RequestParam(value = "product_id") Set<Integer> product_id) {
-    return ordDetailsServ.BuscarCart_detailCartProduct(carts_id, product_id);
+  public List<carts_details> buscarCart_detailsCartProductQuery(@RequestParam(value = "cart_id") Set<Integer> carts_id, @RequestParam(value = "product_id") Set<Integer> product_id) {
+    return cartDetailsServ.BuscarCart_detailCartProduct(carts_id, product_id);
   }
 
   @CrossOrigin(origins = "http://127.0.0.1:5500")
   @PostMapping("/carts_details/crear")
   public void crearCarts_employeesQuery(@RequestBody cart_details cart_details) {
-    ordDetailsServ.CrearCart_details(cart_details.getCarts_id(),cart_details.getProduct_id(),cart_details.getQuantity());
+    cartDetailsServ.CrearCart_details(cart_details.getCarts_id(),cart_details.getProduct_id(),cart_details.getQuantity());
   }
 
   @CrossOrigin(origins = "http://127.0.0.1:5500")
   @PutMapping("/carts_details/modificar/quantity")
   public void modificarCarts_detailsQuantityQuery( @RequestBody cart_details cart_details){
-    ordDetailsServ.modificarCarts_detailsQuantity(cart_details.getCarts_id(), cart_details.getProduct_id(), cart_details.getQuantity());
+    cartDetailsServ.modificarCarts_detailsQuantity(cart_details.getCarts_id(), cart_details.getProduct_id(), cart_details.getQuantity());
   }
 
   @CrossOrigin(origins = "http://127.0.0.1:5500")
   @DeleteMapping("/carts_details/eliminar")
   public void eliminarCarts_employees(@RequestBody cart_details cart_details) {
-    ordDetailsServ.EliminarCart_details(cart_details.getCarts_id(), cart_details.getProduct_id());
+    cartDetailsServ.EliminarCart_details(cart_details.getCarts_id(), cart_details.getProduct_id());
   }
 }

@@ -18,6 +18,11 @@ public class carts {
     @JsonProperty("user_id")
     private int user_id;
 
+    @Column(name = "total_price")
+    @JsonProperty("total_price")
+    private float total_price;
+
+    
     public int getCart_id() {
         return cart_id;
     }
@@ -34,13 +39,21 @@ public class carts {
         this.user_id = user_id;
     }
 
-    public carts(int cart_id, int user_id) {
+    public float getTotal_price() {
+        return total_price;
+    }
+
+    public void setTotal_price(float total_price) {
+        this.total_price = total_price;
+    }
+
+    public carts(int cart_id, int user_id, float total_price) {
         this.cart_id = cart_id;
         this.user_id = user_id;
+        this.total_price = total_price;
     }
 
     public carts() {
-    }
-
+    } 
     
 }

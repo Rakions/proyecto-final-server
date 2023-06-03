@@ -35,11 +35,18 @@ public class cartsController {
     return cartsServ.BuscarCartUser(user_id);
   }
 
+  
+  @CrossOrigin(origins = "http://127.0.0.1:5500")
+  @PutMapping("/carts/modificar/total_price")
+  public void modificarCartsTotal_priceQuery(@RequestBody carts carts){
+      cartsServ.modificarCartsTotal_price(carts.getCart_id(), carts.getTotal_price());
+  }
+
 
   @CrossOrigin(origins = "http://127.0.0.1:5500")
   @PostMapping("/carts/crear")
   public void crearCartsQuery(@RequestBody carts carts) {
-    cartsServ.CrearCart(carts.getUser_id());
+    cartsServ.CrearCart(carts.getUser_id(), carts.getTotal_price());
   }
 
 
