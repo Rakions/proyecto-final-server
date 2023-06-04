@@ -38,9 +38,8 @@ public class OrdersController {
 
     @CrossOrigin(origins = "http://127.0.0.1:5500")
     @PostMapping("/orders/crear")
-    public int crearOrdersQuery(@RequestBody orders order){
+    public void crearOrdersQuery(@RequestBody orders order){
         ordersServ.CrearOrders(order.getUser_id(), order.getShop_id(), order.getOrder_date(), order.getAddress(), order.getTotal_price(), order.getOrder_state(), order.getOrder_name(), order.getOrder_surname());
-        return order.getOrders_id();
     }
 
     @CrossOrigin(origins = "http://127.0.0.1:5500")

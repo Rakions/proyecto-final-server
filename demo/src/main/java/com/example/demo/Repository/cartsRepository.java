@@ -37,11 +37,11 @@ public interface cartsRepository extends CrudRepository<carts, Integer> {
     void modificarCartsTotal_pricePorId(int cart_id, float total_price);
 
     // crear
-    String crearCart = "INSERT INTO carts (cart_id,total_price) VALUES (:cart_id,:total_price)";
+    String crearCart = "INSERT INTO carts (user_id,total_price) VALUES (:user_id,:total_price)";
 
     @Modifying
     @Query(nativeQuery = true, value = crearCart)
-    void crearCart(int cart_id, float total_price);
+    void crearCart(int user_id, float total_price);
 
     // borrar
     String borrarCartQuery = "DELETE FROM carts WHERE cart_id = :cart_id";

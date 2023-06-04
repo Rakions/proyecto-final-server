@@ -42,8 +42,8 @@ public class Carts_detailsService {
     carts_detailsRepo.modificarCarts_detailsQuantityPorId(carts_id, products_id, quantity);
 }
 
-  public void EliminarCart_details(int carts_id, int products_id){
-    carts_detailsRepo.borrarCart_deailsPorId(carts_id, products_id);
+  public void EliminarCart_details(int cart_id, int product_id){
+    carts_detailsRepo.borrarCart_deailsPorId(cart_id, product_id);
   }
 
 }

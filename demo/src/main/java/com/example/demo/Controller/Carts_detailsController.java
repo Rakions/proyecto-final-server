@@ -55,7 +55,7 @@ public class Carts_detailsController {
 
   @CrossOrigin(origins = "http://127.0.0.1:5500")
   @DeleteMapping("/carts_details/eliminar")
-  public void eliminarCarts_employees(@RequestBody carts_details cart_details) {
+  public void EliminarCart_details(@RequestBody carts_details cart_details) {
     cartDetailsServ.EliminarCart_details(cart_details.getCart_id(), cart_details.getProducts_id());
   }
 }
