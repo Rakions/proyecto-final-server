@@ -31,11 +31,11 @@ public interface OrdersRepository extends CrudRepository<orders, Integer> {
     List<orders> getOrdersPorUser_id(Set<Integer> id);
 
     //crear
-    String crearOrdersQuery = "INSERT INTO orders (user_id,shop_id,order_date,address,total_price,order_state) VALUES (:user_id,:shop_id,:order_date,:address,:total_price,:order_state)";
+    String crearOrdersQuery = "INSERT INTO orders (user_id,shop_id,order_date,address,total_price,order_state,order_name,order_surname) VALUES (:user_id,:shop_id,:order_date,:address,:total_price,:order_state,:order_name,:order_surname)";
 
     @Modifying
     @Query(nativeQuery = true, value = crearOrdersQuery)
-    void crearOrders(int user_id, int shop_id, Date order_date, String address, float total_price, String order_state);
+    void crearOrders(int user_id, int shop_id, Date order_date, String address, float total_price, String order_state, String order_name, String order_surname);
 
     //modificar
     String modificarOrdersUser_idQuery = "UPDATE Orders SET user_id = :user_id WHERE orders.orders_id = :id";

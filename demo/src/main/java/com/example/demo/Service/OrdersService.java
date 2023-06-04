@@ -31,8 +31,8 @@ public class OrdersService {
         return listaOrders;
     }
 
-    public void CrearOrders(int user_id, int shop_id, Date order_date, String address, float total_price, String order_state) {
-        ordersRepo.crearOrders(user_id, shop_id, order_date, address, total_price, order_state);
+    public void CrearOrders(int user_id, int shop_id, Date order_date, String address, float total_price, String order_state, String order_name, String order_surname) {
+        ordersRepo.crearOrders(user_id, shop_id, order_date, address, total_price, order_state, order_name, order_surname);
     }
 
     public void modificarOrdersUser_id(Integer orders_id, int user_id) {

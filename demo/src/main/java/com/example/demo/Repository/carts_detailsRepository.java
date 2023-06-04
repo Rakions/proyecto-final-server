@@ -19,39 +19,39 @@ public interface carts_detailsRepository extends CrudRepository<carts_details, I
     List<carts_details> getCart_details();
 
     //buscar
-    String getCart_detailQuery = "SELECT * FROM cart_details WHERE carts_id = :carts_id";
+    String getCart_detailQuery = "SELECT * FROM carts_details WHERE cart_id = :cart_id";
 
     @Query(nativeQuery = true, value = getCart_detailQuery)
-    List<carts_details> getCart_detail(Set<Integer> carts_id);
+    List<carts_details> getCart_detail(Set<Integer> cart_id);
 
-    String getCart_detailProductQuery = "SELECT * FROM cart_details WHERE product_id = :product_id";
+    String getCart_detailProductQuery = "SELECT * FROM carts_details WHERE products_id = :products_id";
 
     @Query(nativeQuery = true, value = getCart_detailProductQuery)
-    List<carts_details> getCart_detailProduct(Set<Integer> product_id);
+    List<carts_details> getCart_detailProduct(Set<Integer> products_id);
 
-    String getCart_detailCartProductQuery = "SELECT * FROM cart_details WHERE carts_id = :carts_id and product_id = :product_id";
+    String getCart_detailCartProductQuery = "SELECT * FROM carts_details WHERE cart_id = :cart_id and products_id = :products_id";
 
     @Query(nativeQuery = true, value = getCart_detailCartProductQuery)
-    List<carts_details> getCart_detailCartProduct(Set<Integer> carts_id, Set<Integer> product_id);
+    List<carts_details> getCart_detailCartProduct(Set<Integer> cart_id, Set<Integer> products_id);
 
     //crear
-    String crearCart_details = "INSERT INTO cart_details (carts_id,product_id,quantity) VALUES (:carts_id,:product_id,:quantity)";
+    String crearCart_details = "INSERT INTO carts_details (cart_id,products_id,quantity) VALUES (:cart_id,:products_id,:quantity)";
 
     @Modifying
     @Query(nativeQuery = true, value = crearCart_details)
-    void crearCart_details(int carts_id,int product_id,int quantity);
+    void crearCart_details(int cart_id,int products_id,int quantity);
 
     //modificar
-    String modificarCart_detailsCantidadQuery = "update cart_details set quantity = :quantity where cart_details.carts_id = :carts_id and product_id = :product_id";
+    String modificarCart_detailsCantidadQuery = "update carts_details set quantity = :quantity where carts_details.cart_id = :cart_id and products_id = :products_id";
 
     @Modifying
     @Query(nativeQuery = true, value = modificarCart_detailsCantidadQuery)
-    void modificarCarts_detailsQuantityPorId(int carts_id, int product_id, int quantity);
+    void modificarCarts_detailsQuantityPorId(int cart_id, int products_id, int quantity);
 
      //borrar
-     String borrarCart_detailsQuery= "DELETE FROM cart_details WHERE carts_id = :carts_id and product_id = :product_id";
+     String borrarCart_detailsQuery= "DELETE FROM carts_details WHERE cart_id = :cart_id and products_id = :products_id";
 
      @Modifying
      @Query(nativeQuery = true, value = borrarCart_detailsQuery)
-     void borrarCart_deailsPorId(int carts_id, int product_id);
+     void borrarCart_deailsPorId(int cart_id, int products_id);
  }

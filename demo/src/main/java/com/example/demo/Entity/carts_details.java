@@ -14,32 +14,32 @@ public class carts_details {
     @JsonProperty("cart_details_id")
     private int cart_details_id;
 
-    @Column(name = "carts_id")
-    @JsonProperty("carts_id")
-    private int carts_id;
+    @Column(name = "cart_id")
+    @JsonProperty("cart_id")
+    private int cart_id;
 
-    @Column(name = "product_id")
-    @JsonProperty("product_id")
-    private int product_id;
+    @Column(name = "products_id")
+    @JsonProperty("products_id")
+    private int products_id;
 
     @Column(name = "quantity")
     @JsonProperty("quantity")
     private int quantity;
 
-    public int getCarts_id() {
-        return carts_id;
+    public int getCart_id() {
+        return cart_id;
     }
 
-    public void setCarts_id(int carts_id) {
-        this.carts_id = carts_id;
+    public void setCart_id(int cart_id) {
+        this.cart_id = cart_id;
     }
 
-    public int getProduct_id() {
-        return product_id;
+    public int getProducts_id() {
+        return products_id;
     }
 
-    public void setProduct_id(int product_id) {
-        this.product_id = product_id;
+    public void setProducts_id(int products_id) {
+        this.products_id = products_id;
     }
 
     public int getQuantity() {
@@ -50,9 +50,9 @@ public class carts_details {
         this.quantity = quantity;
     }
 
-    public carts_details(int carts_id, int product_id, int quantity) {
-        this.carts_id = carts_id;
-        this.product_id = product_id;
+    public carts_details(int cart_id, int products_id, int quantity) {
+        this.cart_id = cart_id;
+        this.products_id = products_id;
         this.quantity = quantity;
     }
 
